@@ -1,0 +1,61 @@
+Initialise the GIT first,  issue below command in folder where u want to initiate the code
+
+youtube vedio:
+https://www.youtube.com/watch?v=dnGeRjP8oxw
+
+git clone https://ikyalnoo@wwwin-github.cisco.com/cafy/cafyap
+git clone https://ikyalnoo@wwwin-github.cisco.com/cafy/cafykit
+
+git config --global user.name "irfankv"
+git config --global user.email "irfanpashakv@gmail.com" 
+
+git init
+
+git status
+
+git add .
+
+git commit -m "message"
+
+git remote add origin "url"    or git remote add myrepo "url"
+
+git remote -v 
+
+git push origin master
+
+git clone url
+
+if we did clone then we need not to give git remote add origin command because git remembers the directory from close url
+
+git pull origin master
+
+git reset <file name which is already staged> # Use this command to remove file which all ready staged(which is already added with git add <file name>)
+
+git branch <branch name>
+
+to list the branched git branch
+
+git checkout <branch name> to switch to new branch
+
+
+git add .
+
+git commit -m "message"
+
+git push origin <branch name>
+
+git log >> to see the history
+
+git revert <commit hash>
+
+git remote set-url origin <> to change the remote repository
+
+git stash 
+
+git stash pop
+
+git diff <commit id> <commit id> or gt diff HEAD . 
+
+git remote -v
+
+git branch -a 

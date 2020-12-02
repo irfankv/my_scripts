@@ -1,0 +1,97 @@
+{
+ "metadata": {
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3-final"
+  },
+  "orig_nbformat": 2,
+  "kernelspec": {
+   "name": "python3",
+   "display_name": "Python 3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2,
+ "cells": [
+  {
+   "source": [
+    "Longest Substring Without Repeating Characters\n",
+    "Example 1:\n",
+    "\n",
+    "Input: s = \"abcabcbb\"\n",
+    "Output: 3\n",
+    "Explanation: The answer is \"abc\", with the length of 3.\n",
+    "Example 2:\n",
+    "\n",
+    "Input: s = \"bbbbb\"\n",
+    "Output: 1\n",
+    "Explanation: The answer is \"b\", with the length of 1.\n",
+    "Example 3:\n",
+    "\n",
+    "Input: s = \"pwwkew\"\n",
+    "Output: 3\n",
+    "Explanation: The answer is \"wke\", with the length of 3.\n",
+    "Notice that the answer must be a substring, \"pwke\" is a subsequence and not a substring."
+   ],
+   "cell_type": "markdown",
+   "metadata": {}
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "class Solution:\n",
+    "    def lengthOfLongestSubstring(self, s: str) -> int:\n",
+    "        dct = {}\n",
+    "        max_so_far = curr_max = start = 0\n",
+    "        for index, i in enumerate(s):\n",
+    "            if i in dct and dct[i] >= start:\n",
+    "                max_so_far = max(max_so_far, curr_max)\n",
+    "                curr_max = index - dct[i]\n",
+    "                start = dct[i] + 1\n",
+    "            else:\n",
+    "                curr_max += 1\n",
+    "            dct[i] = index\n",
+    "        return max(max_so_far, curr_max)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "execute_result",
+     "data": {
+      "text/plain": [
+       "3"
+      ]
+     },
+     "metadata": {},
+     "execution_count": 5
+    }
+   ],
+   "source": [
+    "leng = Solution()\n",
+    "leng.lengthOfLongestSubstring(\"abcabcbb\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ]
+}
