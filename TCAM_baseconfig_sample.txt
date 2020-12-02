@@ -1,0 +1,2853 @@
+### IPv4 INGRESS ACL #####################################################################
+
+### 2512 TCAM ENTRIES ###
+
+ipv4 access-list ipv4_basic_in
+ 500 deny tcp 161.0.0.0/24 eq  1 141.0.0.0/24 eq 10
+ 501 permit tcp 161.0.0.0/24 eq  2 141.0.0.0/24 eq 11
+ 502 deny tcp 161.0.0.0/24       141.0.0.0/24 fragments
+ 503 deny tcp 130.0.0.0/24 eq  4 110.0.0.0/24 eq 13
+ 504 deny tcp 130.0.0.0/24 eq  5 110.0.0.0/24 eq 14
+ 505 deny tcp 130.0.0.0/24 eq  6 110.0.0.0/24 eq 15
+ 506 deny tcp 130.0.0.0/24 eq  7 110.0.0.0/24 eq 16
+ 507 deny tcp 130.0.0.0/24 eq  8 110.0.0.0/24 eq 17
+ 508 deny tcp 130.0.0.0/24 eq  9 110.0.0.0/24 eq 18
+ 509 deny tcp 130.0.0.0/24 eq 10 110.0.0.0/24 eq 19
+ 510 deny tcp 161.0.0.0/24 eq 11 141.0.0.0/24 eq 20
+ 511 deny tcp 130.0.0.0/24 eq 12 110.0.0.0/24 eq 21
+ 512 deny tcp 130.0.0.0/24 eq 13 110.0.0.0/24 eq 22
+ 513 deny tcp 130.0.0.0/24 eq 14 110.0.0.0/24 eq 23
+ 514 deny tcp 130.0.0.0/24 eq 15 110.0.0.0/24 eq 24
+ 515 deny tcp 130.0.0.0/24 eq 16 110.0.0.0/24 eq 25
+ 516 deny tcp 130.0.0.0/24 eq 17 110.0.0.0/24 eq 26
+ 517 deny tcp 130.0.0.0/24 eq 18 110.0.0.0/24 eq 27
+
+ 518 deny tcp 130.0.0.0/24 eq 19 110.0.0.0/24 eq 28
+ 519 deny tcp 130.0.0.0/24 eq 20 110.0.0.0/24 eq 29
+ 520 deny tcp 130.0.0.0/24 eq 21 110.0.0.0/24 eq 30
+ 521 deny tcp 130.0.0.0/24 eq 22 110.0.0.0/24 eq 31
+ 522 deny tcp 130.0.0.0/24 eq 23 110.0.0.0/24 eq 32
+ 523 deny tcp 130.0.0.0/24 eq 24 110.0.0.0/24 eq 33
+ 524 deny tcp 130.0.0.0/24 eq 25 110.0.0.0/24 eq 34
+ 525 deny tcp 130.0.0.0/24 eq 26 110.0.0.0/24 eq 35
+ 526 deny tcp 130.0.0.0/24 eq 27 110.0.0.0/24 eq 36
+ 527 deny tcp 130.0.0.0/24 eq 28 110.0.0.0/24 eq 37
+ 528 deny tcp 130.0.0.0/24 eq 29 110.0.0.0/24 eq 38
+ 529 deny tcp 130.0.0.0/24 eq 30 110.0.0.0/24 eq 39
+ 
+# 530 deny tcp 130.0.0.0/24 eq 31 110.0.0.0/24 eq 40
+# 531 deny tcp 130.0.0.0/24 eq 32 110.0.0.0/24 eq 41
+# 532 deny tcp 130.0.0.0/24 eq 33 110.0.0.0/24 eq 42
+# 533 deny tcp 130.0.0.0/24 eq 34 110.0.0.0/24 eq 43
+# 534 deny tcp 130.0.0.0/24 eq 35 110.0.0.0/24 eq 44
+# 535 deny tcp 130.0.0.0/24 eq 36 110.0.0.0/24 eq 45
+# 536 deny tcp 130.0.0.0/24 eq 37 110.0.0.0/24 eq 46
+# 537 deny tcp 130.0.0.0/24 eq 38 110.0.0.0/24 eq 47
+# 538 deny tcp 130.0.0.0/24 eq 39 110.0.0.0/24 eq 48
+# 539 deny tcp 130.0.0.0/24 eq 40 110.0.0.0/24 eq 49
+# 540 deny tcp 130.0.0.0/24 eq 41 110.0.0.0/24 eq 50
+# 541 deny tcp 130.0.0.0/24 eq 42 110.0.0.0/24 eq 51
+# 542 deny tcp 130.0.0.0/24 eq 43 110.0.0.0/24 eq 52
+# 543 deny tcp 130.0.0.0/24 eq 44 110.0.0.0/24 eq 53
+# 544 deny tcp 130.0.0.0/24 eq 45 110.0.0.0/24 eq 54
+# 545 deny tcp 130.0.0.0/24 eq 46 110.0.0.0/24 eq 55
+# 546 deny tcp 130.0.0.0/24 eq 47 110.0.0.0/24 eq 56
+# 547 deny tcp 130.0.0.0/24 eq 48 110.0.0.0/24 eq 57
+# 548 deny tcp 130.0.0.0/24 eq 49 110.0.0.0/24 eq 58
+# 549 deny tcp 130.0.0.0/24 eq 50 110.0.0.0/24 eq 59
+# 550 deny tcp 130.0.0.0/24 eq 51 110.0.0.0/24 eq 60
+# 551 deny tcp 130.0.0.0/24 eq 52 110.0.0.0/24 eq 61
+# 552 deny tcp 130.0.0.0/24 eq 53 110.0.0.0/24 eq 62
+# 553 deny tcp 130.0.0.0/24 eq 54 110.0.0.0/24 eq 63
+# 554 deny tcp 130.0.0.0/24 eq 55 110.0.0.0/24 eq 64
+# 555 deny tcp 130.0.0.0/24 eq 56 110.0.0.0/24 eq 65
+# 556 deny tcp 130.0.0.0/24 eq 57 110.0.0.0/24 eq 66
+# 557 deny tcp 130.0.0.0/24 eq 58 110.0.0.0/24 eq 67
+# 558 deny tcp 130.0.0.0/24 eq 59 110.0.0.0/24 eq 68
+# 559 deny tcp 130.0.0.0/24 eq 60 110.0.0.0/24 eq 69
+# 560 deny tcp 130.0.0.0/24 eq 61 110.0.0.0/24 eq 70
+# 561 deny tcp 130.0.0.0/24 eq 62 110.0.0.0/24 eq 71
+ 
+ 1001 remark -----------------------------------------------------------
+ 1002 remark | Below are IPv4 TCP test cases 1234567890                |
+ 1003 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 1004 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1018 deny tcp 130.0.0.0/24 eq bgp     110.0.0.0/24 eq 18000
+ 1019 deny tcp 130.0.0.0/24 eq chargen 110.0.0.0/24 eq 18000
+ 1020 deny tcp 130.0.0.0/24 eq domain  110.0.0.0/24 eq 18000
+ 1021 deny tcp 130.0.0.0/24 eq 18000 110.0.0.0/24 eq ftp
+ 1022 deny tcp 130.0.0.0/24 eq 18000 110.0.0.0/24 eq ftp-data
+ 1023 deny tcp 130.0.0.0/24 eq 18000 110.0.0.0/24 eq ldp
+ 1024 deny tcp 130.0.0.0/24 eq 18000 110.0.0.0/24 eq pim-auto-rp
+ 1025 deny tcp 130.0.0.0/24 eq 18000 110.0.0.0/24 eq pop3
+ 1026 deny tcp 130.0.0.0/24 eq 18000 110.0.0.0/24 eq smtp
+ 1027 deny tcp 130.0.0.0/24 eq 18000 110.0.0.0/24 eq ssh
+ 1028 deny tcp 130.0.0.0/24 eq 18000 110.0.0.0/24 eq tacacs
+ 1029 deny tcp 130.0.0.0/24 eq 18000 110.0.0.0/24 eq www
+ 1030 deny tcp 130.0.0.0/24 eq 18000 110.0.0.0/24 eq telnet
+ 1045 deny tcp 130.0.0.0/24 eq 17003 110.0.0.0/24 eq 17003 match-any +established -fin
+ 1046 deny tcp 130.0.0.0/24 eq 17002 110.0.0.0/24 eq 17002 match-any +syn +fin
+ 1047 deny tcp 161.0.0.0/24 eq 17002 141.0.0.0/24 eq 17002 match-any +established
+ 1048 deny tcp 161.0.0.0/24 eq 17001 141.0.0.0/24 eq 17001 established
+ 1049 deny tcp 130.0.0.0/24 eq 17000 110.0.0.0/24 eq 17000 match-any -fin +rst
+ 1050 deny tcp 130.0.0.0/24 eq 17000 110.0.0.0/24 eq 17000 match-any +ack -urg
+ 1051 deny tcp 130.0.0.0/24 eq 17000 110.0.0.0/24 eq 17000 match-any +ack +syn
+ 1052 deny tcp 130.0.0.0/24 eq 16000 110.0.0.0/24 eq 16000 match-all +ack +psh +urg
+ 1053 deny tcp 130.0.0.0/24 eq 16000 110.0.0.0/24 eq 16000 match-all +ack +fin -syn
+ 1054 deny tcp 130.0.0.0/24 eq 16000 110.0.0.0/24 eq 16000 match-all +ack +syn
+ 1055 deny tcp 130.0.0.0/24 eq 15000 110.0.0.0/24 eq 15000 urg
+ 1056 deny tcp 130.0.0.0/24 eq 15000 110.0.0.0/24 eq 15000 psh
+ 1057 deny tcp 130.0.0.0/24 eq 15000 110.0.0.0/24 eq 15000 fin
+ 1058 deny tcp 130.0.0.0/24 eq 15000 110.0.0.0/24 eq 15000 ack
+ 1059 deny tcp 130.0.0.0/24 eq 15000 110.0.0.0/24 eq 15000 syn
+ 1060 deny tcp 130.0.0.0/24 eq 15000 110.0.0.0/24 eq 15000 match-all -ack -fin -psh +rst -syn -urg
+ 1067 deny tcp 130.0.0.0/24 range 50000 59999 110.0.0.0/24 range 50000 59999 dscp af41 ttl range 128 151
+ 1068 deny tcp 130.0.0.0/24 range 50000 59999 110.0.0.0/24 range 50000 59999 dscp af41 ttl eq 10
+ 1069 deny tcp 161.0.0.0/24 range 50000 59999 141.0.0.0/24 range 50000 59999 dscp ef
+ 1070 deny tcp 130.0.0.0/24 range 50000 59999 110.0.0.0/24 range 50000 59999 precedence critical
+ 1071 deny tcp 130.0.0.0/24 neq 40000 110.0.0.0/24 eq 30001
+ 1072 deny tcp 130.0.0.0/24 eq 40000 110.0.0.0/24 neq 40001
+ 1073 deny tcp 130.0.0.0/24 range 30000 39999 110.0.0.0/24 gt 61439
+ 1074 deny tcp 130.0.0.0/24 lt 9999 110.0.0.0/24 range 40000 49999
+ 1075 deny tcp 130.0.0.0/24 range 30000 39999 110.0.0.0/24 range 40000 49999
+ 1076 deny tcp 130.0.0.0/24 gt 60000 110.0.0.0/24 lt 9999
+ 1077 deny tcp 130.0.0.0/24 lt 9999 110.0.0.0/24 gt 60000
+ 1078 deny tcp 161.0.0.0/24 gt 60000 141.0.0.0/24 gt 60000
+ 1079 deny tcp 130.0.0.0/24 lt 9999 110.0.0.0/24 lt 9999
+ 1080 deny tcp 161.0.0.0/24 eq 20000 141.0.0.0/24 eq 20001
+ 1093 deny tcp host 200.42.42.1 host 100.42.42.1
+ 1094 deny tcp host 200.41.41.1 110.0.0.0/24
+ 1095 deny tcp 130.0.0.0/24 host 100.41.41.1
+ 1096 deny tcp host 200.40.40.1 any
+ 1097 deny tcp any host 100.40.40.1
+ 1098 deny tcp 200.31.31.0/24 any
+ 1099 deny tcp any 100.31.31.0/24
+ 1100 permit tcp 200.0.0.0/8 100.0.0.0/8
+
+ 1101 remark -----------------------------------------------------------
+ 1102 remark | Below are UDP test cases 1234567890                     |
+ 1103 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 1104 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ 1126 permit udp 200.31.31.0/24 eq netbios-ns 100.31.31.0/24 eq netbios-ss
+ 1127 deny ipv4 200.31.31.0/24 100.31.31.0/24 fragments
+ 1128 deny udp 200.30.30.0/24 eq biff 100.30.30.0/24 eq biff
+ 1129 deny udp 200.30.30.0/24 100.30.30.0/24 fragments
+ 1130 deny udp 200.30.30.0/24 100.30.30.0/24
+ 1145 deny udp 130.0.0.0/24 eq syslog 110.0.0.0/24 eq 18000
+ 1146 deny udp 130.0.0.0/24 eq tftp   110.0.0.0/24 eq 18000
+ 1147 deny udp 161.0.0.0/24 eq ntp    141.0.0.0/24 eq 18000
+ 1148 deny udp 130.0.0.0/24 eq 18000 110.0.0.0/24 eq domain
+ 1149 deny udp 161.0.0.0/24 eq 18000 141.0.0.0/24 eq bootps
+ 1150 deny udp 161.0.0.0/24 eq 18000 141.0.0.0/24 eq bootpc
+ 1154 deny udp 161.0.0.0/24 range 50000 59999 141.0.0.0/24 range 50000 59999 dscp af33 ttl range 160 207
+ 1155 deny udp 161.0.0.0/24 range 50000 59999 141.0.0.0/24 range 50000 59999 dscp af33 ttl eq 50
+ 1157 deny udp 161.0.0.0/24 range 50000 59999 141.0.0.0/24 range 50000 59999 dscp cs2
+ 1158 deny udp 161.0.0.0/24 range 50000 59999 141.0.0.0/24 range 50000 59999 dscp range af21 af23
+ 1159 deny udp 161.0.0.0/24 range 50000 59999 141.0.0.0/24 range 50000 59999 precedence immediate
+ 1160 deny udp 161.0.0.0/24 range 50000 59999 141.0.0.0/24 range 50000 59999 dscp lt cs2
+ 1171 deny udp 161.0.0.0/24 neq 40000 141.0.0.0/24 eq 30001
+ 1172 deny udp 130.0.0.0/24 eq 40000 110.0.0.0/24 neq 40001
+ 1173 deny udp 130.0.0.0/24 range 30000 39999 110.0.0.0/24 gt 60000
+ 1174 deny udp 130.0.0.0/24 lt 9999 110.0.0.0/24 range 40000 49999
+ 1175 deny udp 161.0.0.0/24 range 30000 39999 141.0.0.0/24 range 40000 49999
+ 1176 deny udp 130.0.0.0/24 gt 60000 110.0.0.0/24 lt 9999
+ 1177 deny udp 130.0.0.0/24 lt 9999 110.0.0.0/24 gt 60000
+ 1178 deny udp 130.0.0.0/24 gt 61439 110.0.0.0/24 gt 61439
+ 1179 deny udp 130.0.0.0/24 lt 8192 110.0.0.0/24 lt 8192
+
+ 1180 deny udp 161.0.0.0/24 eq 20000 141.0.0.0/24 eq 20001
+ 1186 deny udp host 200.42.42.1 host 100.42.42.1
+ 1187 deny udp host 200.41.41.1 110.0.0.0/24
+ 1188 deny udp 130.0.0.0/24 host 100.41.41.1
+ 1189 deny udp host 200.40.40.1 any
+ 1190 deny udp any host 100.40.40.1
+ 1191 deny udp 200.35.32.0/20 100.35.32.0/20
+ 1192 deny udp 200.34.34.0/24 100.34.34.0/24
+ 1193 deny udp 200.33.33.0/25 100.33.33.0/25
+ 1194 deny udp 200.32.32.0/20 any
+ 1195 deny udp 200.31.31.0/24 any
+ 1196 deny udp 200.30.30.0/25 any
+ 1197 deny udp any 100.32.32.0/20
+ 1198 deny udp any 100.31.31.0/24
+ 1199 deny udp any 100.30.30.0/25
+ 1200 permit udp 161.0.0.0/8 141.0.0.0/8
+
+ 1201 remark -----------------------------------------------------------
+ 1202 remark | Below are ICMP/OSPF/EIGRP/IGMP test cases 1234567890    |
+ 1203 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 1204 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ 1206 deny igmp 130.0.0.0/24 110.0.0.0/24 v3-report dscp af22
+ 1207 deny igmp 130.0.0.0/24 110.0.0.0/24 v2-report dscp af22
+ 1208 deny igmp 130.0.0.0/24 110.0.0.0/24 v2-report dscp af21
+ 1209 deny igmp 130.0.0.0/24 110.0.0.0/24 host-report
+ 1210 deny igmp 130.0.0.0/24 110.0.0.0/24 host-query
+ 1218 deny pim 130.0.0.0/24 110.0.0.0/24 dscp af12 ttl eq 150
+ 1219 deny pim 130.0.0.0/24 110.0.0.0/24 dscp af11 ttl eq 100
+ 1220 deny pim 130.0.0.0/24 110.0.0.0/24
+ 1239 deny eigrp 200.6.6.0/24 100.6.6.0/24
+ 1240 permit eigrp 200.0.0.0/8 100.0.0.0/8
+ 1249 deny ospf 200.6.6.0/24 100.6.6.0/24
+ 1250 permit ospf 200.0.0.0/8 100.0.0.0/8
+ 1257 deny sctp 161.0.0.0/24 141.0.0.0/24
+ 1258 deny gre 161.0.0.0/24 141.0.0.0/24
+ 1259 deny ahp 200.6.6.0/24 100.6.6.0/24
+ 1260 permit ahp 200.0.0.0/8 100.0.0.0/8
+ 1264 deny icmp 161.0.0.0/24 141.0.0.0/24 timestamp-reply
+ 1265 deny icmp 161.0.0.0/24 141.0.0.0/24 fragments
+ 1270 deny icmp 161.0.0.0/24 141.0.0.0/24 timestamp-request dscp af32 ttl range 160 191
+ 1271 deny icmp 161.0.0.0/24 141.0.0.0/24 timestamp-request dscp af32 ttl lt 48
+ 1272 deny icmp 161.0.0.0/24 141.0.0.0/24 timestamp-request dscp af32 ttl eq 150
+ 1273 deny icmp 161.0.0.0/24 141.0.0.0/24 timestamp-request precedence flash
+ 1274 deny icmp 161.0.0.0/24 141.0.0.0/24 timestamp-request dscp af12
+ 1275 deny icmp 161.0.0.0/24 141.0.0.0/24 host-redirect
+ 1276 deny icmp 161.0.0.0/24 141.0.0.0/24 net-redirect
+ 1277 deny icmp 161.0.0.0/24 141.0.0.0/24 252 100
+ 1278 deny icmp 161.0.0.0/24 141.0.0.0/24 252 200
+ 1279 deny icmp 161.0.0.0/24 141.0.0.0/24 ttl-exceeded
+ 1280 deny icmp 161.0.0.0/24 141.0.0.0/24 time-exceeded
+ 1281 deny icmp 161.0.0.0/24 141.0.0.0/24 port-unreachable
+ 1282 deny icmp 161.0.0.0/24 141.0.0.0/24 net-unreachable
+ 1283 deny icmp 161.0.0.0/24 141.0.0.0/24 unreachable
+ 1284 deny icmp 161.0.0.0/24 141.0.0.0/24 echo-reply
+ 1285 deny icmp 161.0.0.0/24 141.0.0.0/24 echo
+ 1286 deny icmp host 200.12.12.1 host 100.12.12.1
+ 1287 deny icmp host 200.11.11.1 110.0.0.0/24
+ 1288 deny icmp 130.0.0.0/24 host 100.11.11.1
+ 1289 deny icmp host 200.10.10.1 any
+ 1290 deny icmp any host 100.10.10.1
+ 1291 deny icmp 200.7.0.0/16 100.7.0.0/16
+ 1292 deny icmp 200.6.6.0/24 100.6.6.0/24
+ 1293 deny icmp 200.5.5.0/25 100.5.5.0/25
+ 1294 deny icmp 200.4.0.0/16 any
+ 1295 deny icmp 200.3.3.0/24 any
+ 1296 deny icmp 200.2.2.0/25 any
+ 1297 deny icmp any 100.4.0.0/16
+ 1298 deny icmp any 100.3.3.0/24
+ 1299 deny icmp any 100.2.2.0/25
+ 1300 permit icmp 161.0.0.0/8 141.0.0.0/8
+
+ 1301 remark -----------------------------------------------------------
+ 1302 remark | Below are IPv4 test cases 1234567890                    |
+ 1303 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 1304 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ 1315 deny ipv4 200.0.0.1/32   100.0.0.1/32
+ 1316 deny ipv4 200.0.0.2/31   100.0.0.2/31
+ 1317 deny ipv4 200.0.0.4/30   100.0.0.4/30
+ 1318 deny ipv4 200.0.0.8/29   100.0.0.8/29
+ 1319 deny ipv4 200.0.0.16/28  100.0.0.16/28
+ 1320 deny ipv4 200.0.0.32/27  100.0.0.32/27
+ 1321 deny ipv4 200.0.0.64/26  100.0.0.64/26
+ 1322 deny ipv4 200.0.0.128/25 100.0.0.128/25
+ 1323 deny ipv4 200.0.1.0/24   100.0.1.0/24
+ 1324 deny ipv4 200.0.2.0/23   100.0.2.0/23
+ 1325 deny ipv4 200.0.4.0/22   100.0.4.0/22
+ 1326 deny ipv4 200.0.8.0/21   100.0.8.0/21
+ 1327 deny ipv4 200.0.16.0/20  100.0.16.0/20
+ 1328 deny ipv4 200.0.32.0/19  100.0.32.0/19
+ 1329 deny ipv4 200.0.64.0/18  100.0.64.0/18
+ 1330 deny ipv4 200.0.128.0/17 100.0.128.0/17
+ 1345 deny ipv4 200.1.1.0 0.0.0.255 100.0.0.0 0.252.252.255 dscp ef
+ 1346 deny ipv4 200.1.1.0 0.0.0.255 100.1.1.0 0.252.252.255 dscp ef
+ 1347 deny ipv4 200.1.1.0 0.0.0.255 100.2.2.0 0.252.252.255 dscp ef
+ 1348 deny ipv4 200.1.1.0 0.0.0.255 100.3.3.0 0.252.252.255 dscp ef
+ 1349 deny ipv4 200.1.1.0 0.254.254.255 100.1.1.0 0.254.254.255 precedence flash-override
+ 1350 deny ipv4 200.0.0.0 0.254.254.255 100.0.0.0 0.254.254.255 precedence flash-override
+ 1358 deny ipv4 130.0.0.0/24 110.0.0.0/24 dscp af31 ttl eq 120 fragments
+ 1359 deny ipv4 130.0.0.0/24 110.0.0.0/24 dscp af33
+ 1360 deny ipv4 130.0.0.0/24 110.0.0.0/24 fragments
+ 1365 deny ipv4 161.0.0.0/24 141.0.0.0/24 dscp af32 ttl neq 150
+ 1366 deny ipv4 161.0.0.0/24 141.0.0.0/24 dscp af32 ttl eq 150
+ 1367 deny ipv4 130.0.0.0/24 110.0.0.0/24 dscp af31 ttl eq 150
+ 1368 deny ipv4 130.0.0.0/24 110.0.0.0/24 dscp af31 ttl range 96 127
+ 1369 deny ipv4 130.0.0.0/24 110.0.0.0/24 dscp af31 ttl gt 207
+ 1370 deny ipv4 161.0.0.0/24 141.0.0.0/24 dscp af31 ttl lt 32
+ 1375 deny ipv4 130.0.0.0/24 110.0.0.0/24 dscp range cs2 af23
+ 1376 deny ipv4 161.0.0.0/24 141.0.0.0/24 dscp cs1
+ 1377 deny ipv4 161.0.0.0/24 141.0.0.0/24 dscp af13
+ 1378 deny ipv4 161.0.0.0/24 141.0.0.0/24 dscp af12
+ 1379 deny ipv4 161.0.0.0/24 141.0.0.0/24 dscp af11
+ 1380 deny ipv4 130.0.0.0/24 110.0.0.0/24 precedence priority
+ 1386 deny ipv4 host 200.12.12.1 host 100.12.12.1
+ 1387 deny ipv4 host 200.11.11.1 110.0.0.0/24
+ 1388 deny ipv4 130.0.0.0/24 host 100.11.11.1
+ 1389 deny ipv4 host 200.10.10.1 any
+ 1390 deny ipv4 any host 100.10.10.1
+ 1391 deny ipv4 200.7.0.0/16 100.7.0.0/16
+ 1392 deny ipv4 200.6.6.0/24 100.6.6.0/24
+ 1393 deny ipv4 148.0.0.0/8  161.0.1.0/24 
+ 1394 deny ipv4 148.0.0.0/8  161.0.2.0/24 
+ 1395 deny ipv4 161.0.1.0/24 141.0.1.0/24
+ 1396 deny ipv4 200.2.2.0/25 any
+ 1397 deny ipv4 any 100.4.0.0/16
+ 1398 deny ipv4 any 100.3.3.0/24
+ 1399 deny ipv4 any 100.2.2.0/25
+ 1400 permit ipv4 any any
+
+####
+
+interface HundredGigE0/0/0/0         ipv4 access-group ipv4_basic_in ingress 
+interface HundredGigE0/0/0/2         ipv4 access-group ipv4_basic_in ingress 
+interface HundredGigE0/0/0/4         ipv4 access-group ipv4_basic_in ingress 
+interface HundredGigE0/0/0/5         ipv4 access-group ipv4_basic_in ingress 
+interface HundredGigE0/0/0/6         ipv4 access-group ipv4_basic_in ingress 
+interface HundredGigE0/0/0/8         ipv4 access-group ipv4_basic_in ingress 
+interface HundredGigE0/0/0/9         ipv4 access-group ipv4_basic_in ingress 
+interface HundredGigE0/0/0/12        ipv4 access-group ipv4_basic_in ingress                                  
+interface Bundle-Ether4509           ipv4 access-group ipv4_basic_in ingress 
+interface Bundle-Ether4510           ipv4 access-group ipv4_basic_in ingress 
+interface Bundle-Ether4511           ipv4 access-group ipv4_basic_in ingress 
+interface Bundle-Ether4512           ipv4 access-group ipv4_basic_in ingress 
+interface Bundle-Ether4513           ipv4 access-group ipv4_basic_in ingress 
+interface Bundle-Ether4514           ipv4 access-group ipv4_basic_in ingress 
+interface Bundle-Ether4515           ipv4 access-group ipv4_basic_in ingress 
+interface Bundle-Ether4516           ipv4 access-group ipv4_basic_in ingress                                  
+interface Bundle-Ether1401           ipv4 access-group ipv4_basic_in ingress 
+interface FourHundredGigE0/0/0/13    ipv4 access-group ipv4_basic_in ingress 
+interface FourHundredGigE0/0/0/15    ipv4 access-group ipv4_basic_in ingress                                    
+interface Bundle-Ether2401           ipv4 access-group ipv4_basic_in ingress 
+interface HundredGigE0/0/0/24        ipv4 access-group ipv4_basic_in ingress 
+interface HundredGigE0/0/0/30        ipv4 access-group ipv4_basic_in ingress 
+interface HundredGigE0/0/0/0.101     ipv4 access-group ipv4_basic_in ingress 
+interface Bundle-Ether4509.201       ipv4 access-group ipv4_basic_in ingress 
+  
+### IPv4 EGRESS ACL #####################################################################
+
+### 510 entry ACL
+
+ipv4 access-list ipv4_basic_out
+no 500 deny tcp 110.0.0.0/24 eq  1 130.0.0.0/24 eq 10
+no 501 deny tcp 110.0.0.0/24 eq  2 130.0.0.0/24 eq 11
+no 502 deny tcp 110.0.0.0/24 eq  3 130.0.0.0/24 eq 12
+no 503 deny tcp 110.0.0.0/24 eq  4 130.0.0.0/24 eq 13
+no 504 deny tcp 110.0.0.0/24 eq  5 130.0.0.0/24 eq 14
+no 505 deny tcp 110.0.0.0/24 eq  6 130.0.0.0/24 eq 15
+no 506 deny tcp 110.0.0.0/24 eq  7 130.0.0.0/24 eq 16
+no 507 deny tcp 110.0.0.0/24 eq  8 130.0.0.0/24 eq 17
+no 508 deny tcp 110.0.0.0/24 eq  9 130.0.0.0/24 eq 18
+no 509 deny tcp 110.0.0.0/24 eq 10 130.0.0.0/24 eq 19
+no 510 deny tcp 110.0.0.0/24 eq 11 130.0.0.0/24 eq 20
+no 511 deny tcp 110.0.0.0/24 eq 12 130.0.0.0/24 eq 21
+no 512 deny tcp 110.0.0.0/24 eq 13 130.0.0.0/24 eq 22
+no 513 deny tcp 110.0.0.0/24 eq 14 130.0.0.0/24 eq 23
+no 514 deny tcp 110.0.0.0/24 eq 15 130.0.0.0/24 eq 24
+no 515 deny tcp 110.0.0.0/24 eq 16 130.0.0.0/24 eq 25
+no 516 deny tcp 110.0.0.0/24 eq 17 130.0.0.0/24 eq 26
+no 517 deny tcp 110.0.0.0/24 eq 18 130.0.0.0/24 eq 27
+no 518 deny tcp 110.0.0.0/24 eq 19 130.0.0.0/24 eq 28
+no 519 deny tcp 110.0.0.0/24 eq 20 130.0.0.0/24 eq 29
+no 520 deny tcp 110.0.0.0/24 eq 21 130.0.0.0/24 eq 30
+no 521 deny tcp 110.0.0.0/24 eq 22 130.0.0.0/24 eq 31
+no 522 deny tcp 110.0.0.0/24 eq 23 130.0.0.0/24 eq 32
+no 523 deny tcp 110.0.0.0/24 eq 24 130.0.0.0/24 eq 33
+no 524 deny tcp 110.0.0.0/24 eq 25 130.0.0.0/24 eq 34
+no 525 deny tcp 110.0.0.0/24 eq 26 130.0.0.0/24 eq 35
+no 526 deny tcp 110.0.0.0/24 eq 27 130.0.0.0/24 eq 36
+no 527 deny tcp 110.0.0.0/24 eq 28 130.0.0.0/24 eq 37
+no 528 deny tcp 110.0.0.0/24 eq 29 130.0.0.0/24 eq 38
+no 529 deny tcp 110.0.0.0/24 eq 30 130.0.0.0/24 eq 39
+no 530 deny tcp 110.0.0.0/24 eq 31 130.0.0.0/24 eq 40
+no 531 deny tcp 110.0.0.0/24 eq 32 130.0.0.0/24 eq 41
+no 532 deny tcp 110.0.0.0/24 eq 33 130.0.0.0/24 eq 42
+no 533 deny tcp 110.0.0.0/24 eq 34 130.0.0.0/24 eq 43
+no 534 deny tcp 110.0.0.0/24 eq 35 130.0.0.0/24 eq 44
+no 535 deny tcp 110.0.0.0/24 eq 36 130.0.0.0/24 eq 45
+no 536 deny tcp 110.0.0.0/24 eq 37 130.0.0.0/24 eq 46
+no 537 deny tcp 110.0.0.0/24 eq 38 130.0.0.0/24 eq 47
+no 538 deny tcp 110.0.0.0/24 eq 39 130.0.0.0/24 eq 48
+no 539 deny tcp 110.0.0.0/24 eq 40 130.0.0.0/24 eq 49
+no 540 deny tcp 110.0.0.0/24 eq 41 130.0.0.0/24 eq 50
+no 541 deny tcp 110.0.0.0/24 eq 42 130.0.0.0/24 eq 51
+no 542 deny tcp 110.0.0.0/24 eq 43 130.0.0.0/24 eq 52
+no 543 deny tcp 110.0.0.0/24 eq 44 130.0.0.0/24 eq 53
+no 544 deny tcp 110.0.0.0/24 eq 45 130.0.0.0/24 eq 54
+no 545 deny tcp 110.0.0.0/24 eq 46 130.0.0.0/24 eq 55
+no 546 deny tcp 110.0.0.0/24 eq 47 130.0.0.0/24 eq 56
+no 547 deny tcp 110.0.0.0/24 eq 48 130.0.0.0/24 eq 57
+no 548 deny tcp 110.0.0.0/24 eq 49 130.0.0.0/24 eq 58
+no 549 deny tcp 110.0.0.0/24 eq 50 130.0.0.0/24 eq 59
+no 550 deny tcp 110.0.0.0/24 eq 51 130.0.0.0/24 eq 60
+no 551 deny tcp 130.0.0.0/24 eq 52 110.0.0.0/24 eq 61
+no 552 deny tcp 130.0.0.0/24 eq 53 110.0.0.0/24 eq 62
+no 553 deny tcp 130.0.0.0/24 eq 54 110.0.0.0/24 eq 63
+no 554 deny tcp 130.0.0.0/24 eq 55 110.0.0.0/24 eq 64
+no 555 deny tcp 130.0.0.0/24 eq 56 110.0.0.0/24 eq 65
+no 556 deny tcp 130.0.0.0/24 eq 57 110.0.0.0/24 eq 66
+no 557 deny tcp 130.0.0.0/24 eq 58 110.0.0.0/24 eq 67
+no 558 deny tcp 130.0.0.0/24 eq 59 110.0.0.0/24 eq 68
+no 559 deny tcp 130.0.0.0/24 eq 60 110.0.0.0/24 eq 69
+no 560 deny tcp 130.0.0.0/24 eq 61 110.0.0.0/24 eq 70
+no 561 deny tcp 130.0.0.0/24 eq 62 110.0.0.0/24 eq 71
+no 562 deny tcp 130.0.0.0/24 eq 63 110.0.0.0/24 eq 72
+no 563 deny tcp 130.0.0.0/24 eq 64 110.0.0.0/24 eq 73
+no 564 deny tcp 130.0.0.0/24 eq 65 110.0.0.0/24 eq 74
+no 565 deny tcp 130.0.0.0/24 eq 66 110.0.0.0/24 eq 75
+no 566 deny tcp 130.0.0.0/24 eq 67 110.0.0.0/24 eq 76
+no 567 deny tcp 130.0.0.0/24 eq 68 110.0.0.0/24 eq 77
+no 568 deny tcp 130.0.0.0/24 eq 69 110.0.0.0/24 eq 78
+no 569 deny tcp 130.0.0.0/24 eq 70 110.0.0.0/24 eq 79
+no 570 deny tcp 130.0.0.0/24 eq 71 110.0.0.0/24 eq 80
+no 571 deny tcp 130.0.0.0/24 eq 72 110.0.0.0/24 eq 81
+no 572 deny tcp 130.0.0.0/24 eq 73 110.0.0.0/24 eq 82
+no 573 deny tcp 130.0.0.0/24 eq 74 110.0.0.0/24 eq 83
+no 574 deny tcp 130.0.0.0/24 eq 75 110.0.0.0/24 eq 84
+
+ 1501 remark -----------------------------------------------------------
+ 1502 remark | Below are IPv4 TCP test cases 1234567890                |
+ 1503 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 1504 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ 1546 deny tcp 110.0.0.0/24 eq 17002 130.0.0.0/24 eq 17002 match-any +syn +fin
+ 1547 deny tcp 110.0.0.0/24 eq 17002 130.0.0.0/24 eq 17002 match-any +established
+ 1548 deny tcp 110.0.0.0/24 eq 17001 130.0.0.0/24 eq 17001 established
+ 1554 deny tcp 110.0.0.0/24 eq 16000 130.0.0.0/24 eq 16000 match-all +ack +syn
+ 1558 deny tcp 141.0.0.0/24 eq 15000 161.0.0.0/24 eq 15000 ack
+ 1559 deny tcp 141.0.0.0/24 eq 15000 161.0.0.0/24 eq 15000 syn
+ 1560 deny tcp 110.0.0.0/24 eq 15000 130.0.0.0/24 eq 15000 match-all -ack -fin -psh +rst -syn -urg
+ 
+ 1573 deny tcp 110.0.0.0/24 range 30000 39999 201.1.1.0/24 gt 60000 ttl range 100 105
+ 1574 deny tcp 110.0.0.0/24 lt 9999 201.1.1.0/24 range 40000 49999
+ 1575 deny tcp 110.0.0.0/24 range 30000 39999 201.1.1.0/24 range 40000 49999
+ 1578 deny tcp 110.0.0.0/24 gt 61439 201.1.1.0/24 gt 61439
+ 1579 deny tcp 110.0.0.0/24 lt 8192 201.1.1.0/24 lt 8192
+ 1580 deny tcp 110.0.0.0/24 eq 20000 201.1.1.0/24 eq 20001
+ 1600 permit tcp 101.0.0.0/8 201.0.0.0/8
+
+ 1601 remark -----------------------------------------------------------
+ 1602 remark | Below are UDP test cases 1234567890                     |
+ 1603 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 1604 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1648 deny udp 110.30.30.0/24 eq biff 201.30.30.0/24 eq biff
+ 1649 deny udp 110.30.30.0/24 201.30.30.0/24 fragments
+ 1650 deny udp 110.30.30.0/24 201.30.30.0/24
+
+ 1658 deny udp 110.1.1.0/24 range 53248 57343 201.1.1.0/24 range 53248 57343 dscp range af21 af23
+ 1659 deny udp 110.1.1.0/24 range 53248 57343 201.1.1.0/24 range 53248 57343 precedence immediate
+ 1673 deny udp 110.1.1.0/24 range 32768 36863 201.1.1.0/24 gt 61439
+ 1674 deny udp 110.1.1.0/24 lt 8192 201.1.1.0/24 range 40960 49151
+ 1675 deny udp 141.0.0.0/24 range 30000 39999 161.0.0.0/24 range 40000 49999
+ 1678 deny udp 110.1.1.0/24 gt 61439 201.1.1.0/24 gt 61439
+ 1679 deny udp 110.1.1.0/24 lt 8192 201.1.1.0/24 lt 8192
+ 1680 deny udp 110.1.1.0/24 eq 20000 201.1.1.0/24 eq 20001
+ 1700 permit udp 141.0.0.0/24 161.0.0.0/24
+
+ 1701 remark -----------------------------------------------------------
+ 1702 remark | Below are ICMP/OSPF/EIGRP/IGMP test cases 1234567890    |
+ 1703 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 1704 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ 1749 deny ospf 101.6.6.0/24 201.6.6.0/24
+ 1750 permit ospf 101.0.0.0/8 201.0.0.0/8
+ 1757 deny sctp 101.6.6.0/24 201.6.6.0/24
+ 1758 deny gre 101.6.6.0/24 201.6.6.0/24
+ 1759 deny ahp 101.6.6.0/24 201.6.6.0/24
+ 1760 permit ahp 101.0.0.0/8 201.0.0.0/8
+
+ 1764 deny icmp 141.0.0.0/24 161.0.0.0/24 timestamp-reply
+ 1765 deny icmp 141.0.0.0/24 161.0.0.0/24 fragments
+ 1768 deny icmp 110.0.0.0/24 130.0.0.0/24 timestamp-request dscp af32 ttl range 160 191
+ 1769 deny icmp 110.0.0.0/24 130.0.0.0/24 timestamp-request dscp af32 ttl lt 48
+ 1770 deny icmp 110.0.0.0/24 130.0.0.0/24 timestamp-request dscp af32 ttl eq 150
+ 1771 deny icmp 110.0.0.0/24 130.0.0.0/24 timestamp-request precedence flash
+ 1772 deny icmp 110.0.0.0/24 130.0.0.0/24 timestamp-request dscp af12
+ 1774 deny icmp 110.0.0.0/24 130.0.0.0/24 host-redirect
+ 1775 deny icmp 110.0.0.0/24 130.0.0.0/24 net-redirect
+ 1776 deny icmp 110.0.0.0/24 130.0.0.0/24 252 100
+ 1777 deny icmp 110.0.0.0/24 130.0.0.0/24 252 200
+ 1778 deny icmp 110.0.0.0/24 130.0.0.0/24 ttl-exceeded
+ 1779 deny icmp 110.0.0.0/24 130.0.0.0/24 time-exceeded
+ 1781 deny icmp 110.0.0.0/24 130.0.0.0/24 port-unreachable
+ 1782 deny icmp 110.0.0.0/24 130.0.0.0/24 net-unreachable
+ 1783 deny icmp 110.0.0.0/24 130.0.0.0/24 unreachable
+ 1784 deny icmp 141.0.0.0/24 161.0.0.0/24 echo-reply
+ 1785 deny icmp 141.0.0.0/24 161.0.0.0/24 echo
+ 1786 deny icmp host 101.12.12.1 host 201.12.12.1
+ 1787 deny icmp host 101.11.11.1 201.1.1.0/24
+ 1788 deny icmp 101.1.1.0/24 host 201.11.11.1
+ 1789 deny icmp host 101.10.10.1 any
+ 1790 deny icmp any host 201.10.10.1
+ 1791 deny icmp 101.7.0.0/16 201.7.0.0/16
+ 1792 deny icmp 101.6.6.0/24 201.6.6.0/24
+ 1793 deny icmp 101.5.5.0/25 201.5.5.0/25
+ 1794 deny icmp 101.4.0.0/16 any
+ 1795 deny icmp 101.3.3.0/24 any
+ 1796 deny icmp 101.2.2.0/25 any
+ 1797 deny icmp any 201.4.0.0/16
+ 1798 deny icmp any 201.3.3.0/24
+ 1799 deny icmp any 201.2.2.0/25
+ 1800 permit icmp 141.0.0.0/8 161.0.0.0/8
+
+ 1801 remark -----------------------------------------------------------
+ 1802 remark | Below are IPv4 test cases 1234567890                    |
+ 1803 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 1804 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1845 deny ipv4 101.1.1.0 0.0.0.255 201.0.0.0 0.252.252.255 dscp ef
+ 1846 deny ipv4 101.1.1.0 0.0.0.255 201.1.1.0 0.252.252.255 dscp ef
+ 1847 deny ipv4 101.1.1.0 0.0.0.255 201.2.2.0 0.252.252.255 dscp ef
+ 1848 deny ipv4 101.1.1.0 0.0.0.255 201.3.3.0 0.252.252.255 dscp ef
+ 1849 deny ipv4 101.1.1.0 0.254.254.255 201.1.1.0 0.254.254.255 precedence flash-override
+ 1850 deny ipv4 101.0.0.0 0.254.254.255 201.0.0.0 0.254.254.255 precedence flash-override
+ 1858 deny ipv4 141.0.0.0/24 161.0.0.0/24 dscp af31 ttl eq 120 fragments
+ 1859 deny ipv4 141.0.0.0/24 161.0.0.0/24 dscp af33
+ 1860 deny ipv4 141.0.0.0/24 161.0.0.0/24 fragments
+ 1865 deny ipv4 141.0.0.0/24 161.0.0.0/24 dscp af32 ttl neq 150
+ 1866 deny ipv4 141.0.0.0/24 161.0.0.0/24 dscp af32 ttl eq 150
+ 1867 deny ipv4 141.0.0.0/24 161.0.0.0/24 dscp af31 ttl eq 150
+ 1868 deny ipv4 141.0.0.0/24 161.0.0.0/24 dscp af31 ttl range 96 127
+ 1869 deny ipv4 141.0.0.0/24 161.0.0.0/24 dscp af31 ttl gt 207
+ 1870 deny ipv4 141.0.0.0/24 161.0.0.0/24 dscp af31 ttl lt 32
+ 1875 deny ipv4 141.0.0.0/24 161.0.0.0/24 dscp range cs1 af13
+ 1876 deny ipv4 141.0.0.0/24 161.0.0.0/24 dscp cs2
+ 1877 deny ipv4 141.0.0.0/24 161.0.0.0/24 dscp af23
+ 1878 deny ipv4 141.0.0.0/24 161.0.0.0/24 dscp af22
+ 1879 deny ipv4 141.0.0.0/24 161.0.0.0/24 dscp af21
+ 1880 deny ipv4 141.0.0.0/24 161.0.0.0/24 precedence immediate
+ 1886 deny ipv4 host 101.12.12.1 host 201.12.12.1
+ 1887 deny ipv4 host 101.11.11.1 201.1.1.0/24
+ 1888 deny ipv4 101.1.1.0/24 host 201.11.11.1
+ 1889 deny ipv4 host 101.10.10.1 any
+ 1890 deny ipv4 any host 201.10.10.1
+ 1891 deny ipv4 101.7.0.0/16 201.7.0.0/16
+ 1892 deny ipv4 101.6.6.0/24 201.6.6.0/24
+ 1893 deny ipv4 101.5.5.0/25 201.5.5.0/25
+ 1894 deny ipv4 161.0.1.0/24 148.0.0.0/8
+ 1895 deny ipv4 161.0.2.0/24 148.0.0.0/8
+ 1896 deny ipv4 101.2.2.0/25 any
+ 1897 deny ipv4 any 201.4.0.0/16
+ 1898 deny ipv4 any 201.3.3.0/24
+ 1899 deny ipv4 any 201.2.2.0/25
+ 1900 permit ipv4 any any
+
+####
+
+interface HundredGigE0/0/0/0         ipv4 access-group ipv4_basic_out egress 
+interface HundredGigE0/0/0/2         ipv4 access-group ipv4_basic_out egress 
+interface HundredGigE0/0/0/4         ipv4 access-group ipv4_basic_out egress 
+interface HundredGigE0/0/0/5         ipv4 access-group ipv4_basic_out egress 
+interface HundredGigE0/0/0/6         ipv4 access-group ipv4_basic_out egress 
+interface HundredGigE0/0/0/8         ipv4 access-group ipv4_basic_out egress 
+interface HundredGigE0/0/0/9         ipv4 access-group ipv4_basic_out egress 
+interface HundredGigE0/0/0/12        ipv4 access-group ipv4_basic_out egress                                                           
+interface Bundle-Ether4509           ipv4 access-group ipv4_basic_out egress 
+interface Bundle-Ether4510           ipv4 access-group ipv4_basic_out egress 
+interface Bundle-Ether4511           ipv4 access-group ipv4_basic_out egress 
+interface Bundle-Ether4512           ipv4 access-group ipv4_basic_out egress 
+interface Bundle-Ether4513           ipv4 access-group ipv4_basic_out egress 
+interface Bundle-Ether4514           ipv4 access-group ipv4_basic_out egress 
+interface Bundle-Ether4515           ipv4 access-group ipv4_basic_out egress 
+interface Bundle-Ether4516           ipv4 access-group ipv4_basic_out egress                                                      
+interface Bundle-Ether1401           ipv4 access-group ipv4_basic_out egress 
+interface FourHundredGigE0/0/0/13    ipv4 access-group ipv4_basic_out egress 
+interface FourHundredGigE0/0/0/15    ipv4 access-group ipv4_basic_out egress                                                     
+interface Bundle-Ether2401           ipv4 access-group ipv4_basic_out egress 
+interface HundredGigE0/0/0/24        ipv4 access-group ipv4_basic_out egress 
+interface HundredGigE0/0/0/30        ipv4 access-group ipv4_basic_out egress 
+interface HundredGigE0/0/0/0.101     ipv4 access-group ipv4_basic_out egress 
+interface Bundle-Ether4509.201       ipv4 access-group ipv4_basic_out egress 
+ 
+### IPv6 INGRESS ACL #####################################################################
+
+### 491 Entries
+
+ipv6 access-list ipv6_basic_in
+
+ 500 deny tcp 2001:db8:161::/64 eq  1 2001:db8:141::/64 eq 10
+ 501 deny tcp 2001:db8:161::/64 eq  2 2001:db8:141::/64 eq 11
+ 502 deny tcp 2001:db8:161::/64 eq  3 2001:db8:141::/64 eq 12
+ 503 deny tcp 2001:db8:161::/64       2001:db8:141::/64 fragments
+ 504 deny icmpv6 2001:db8:161:10::/64 2001:db8:141:10::/64 echo
+ 505 deny icmpv6 2001:db8:161:10::/64 2001:db8:141:10::/64 fragments
+ 506 deny tcp 2001:db8:161::/70 eq  7 2001:db8:141::/70 eq 16
+ 507 deny tcp 2001:db8:161::/71 eq  8 2001:db8:141::/71 eq 17
+ 508 deny tcp 2001:db8:161::/72 eq  9 2001:db8:141::/72 eq 18
+ 509 deny tcp 2001:db8:161::/73 eq 10 2001:db8:141::/73 eq 19
+ 510 deny tcp 2001:db8:161::/74 eq 11 2001:db8:141::/74 eq 20
+ 511 deny tcp 2001:db8:161::/75 eq 12 2001:db8:141::/75 eq 21
+ 512 deny tcp 2001:db8:161::/76 eq 13 2001:db8:141::/76 eq 22
+ 513 deny tcp 2001:db8:161::/77 eq 14 2001:db8:141::/77 eq 23
+ 514 deny tcp 2001:db8:161::/78 eq 15 2001:db8:141::/78 eq 24
+ 515 deny tcp 2001:db8:161::/79 eq 16 2001:db8:141::/79 eq 25
+ 516 deny tcp 2001:db8:161::/80 eq 17 2001:db8:141::/80 eq 26
+ 517 deny tcp 2001:db8:161::/81 eq 18 2001:db8:141::/81 eq 27
+ 518 deny tcp 2001:db8:161::/82 eq 19 2001:db8:141::/82 eq 28
+ 519 deny tcp 2001:db8:161::/83 eq 20 2001:db8:141::/83 eq 29
+ 520 deny tcp 2001:db8:161::/84 eq 21 2001:db8:141::/84 eq 30
+ 521 deny tcp 2001:db8:161::/85 eq 22 2001:db8:141::/85 eq 31
+ 522 deny tcp 2001:db8:161::/84 eq 23 2001:db8:141::/84 eq 32
+ 523 deny tcp 2001:db8:161::/85 eq 24 2001:db8:141::/85 eq 33
+
+ 5001 remark -----------------------------------------------------------
+ 5002 remark | Below are TCP test cases 1234567890                     |
+ 5003 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 5004 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 5045 deny tcp 3000:1:1:1::/64 eq smtp 2000:1:1:1::/64 eq 18000
+ 5046 deny tcp 3000:1:1:1::/64 eq ftp 2000:1:1:1::/64 eq 18000
+ 5047 deny tcp 3000:1:1:1::/64 eq ftp-data 2000:1:1:1::/64 eq 18000
+ 5048 deny tcp 3000:1:1:1::/64 eq 18000 2000:1:1:1::/64 eq telnet
+ 5049 deny tcp 3000:1:1:1::/64 eq 18000 2000:1:1:1::/64 eq uucp
+ 5050 deny tcp 3000:1:1:1::/64 eq 18000 2000:1:1:1::/64 eq www
+ 5069 deny tcp 2001:db8:161::/64 range 50000 59999 2001:db8:141::/64 range 50000 59999 match-all + ack + syn dscp ef
+ 5070 deny tcp 2001:db8:161::/64 range 50000 59999 2001:db8:141::/64 range 50000 59999 precedence critical
+ 5071 deny tcp 3000:1:1:1::/64 neq 40000 2000:1:1:1::/64 eq 30001
+ 5075 deny tcp 3000:1:1:1::/64 range 30000 39999 2000:1:1:1::/64 range 40000 49999
+ 5076 deny tcp 3000:1:1:1::/64 gt 57343 2000:1:1:1::/64 lt 4096
+ 5077 deny tcp 3000:1:1:1::/64 lt 4096 2000:1:1:1::/64 gt 57343
+ 5078 deny tcp 3000:1:1:1::/64 gt 57343 2000:1:1:1::/64 gt 57343
+ 5079 deny tcp 2001:db8:161::/64 lt 4096 2001:db8:141::/64 lt 4096
+ 5080 deny tcp 3000:1:1:1::/64 eq 20000 2000:1:1:1::/64 eq 20001
+ 5096 deny tcp 3000:2:2:2::/97 any
+ 5099 deny tcp any 2000:2:2:2::/96
+ 5100 permit tcp 2001::/16 2001::/16
+
+ 5101 remark -----------------------------------------------------------
+ 5102 remark | Below are UDP test cases 1234567890                     |
+ 5103 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 5104 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ 5145 deny udp 3000:1:1:1::/64 eq tftp 2000:1:1:1::/64 eq 18000
+ 5146 deny udp 3000:1:1:1::/64 eq domain 2000:1:1:1::/64 eq 18000
+ 5147 deny udp 3000:1:1:1::/64 eq who 2000:1:1:1::/64 eq 18000
+ 5148 deny udp 3000:1:1:1::/64 eq 18000 2000:1:1:1::/64 eq snmp
+ 5149 deny udp 3000:1:1:1::/64 eq 18000 2000:1:1:1::/64 eq snmptrap
+ 5150 deny udp 3000:1:1:1::/64 eq 18000 2000:1:1:1::/64 eq tacacs
+ 5166 deny udp 2001:db8:161::/64 range 53248 57343 2001:db8:141::/64 range 53248 57343 dscp cs2
+ 5167 deny udp 3000:1:1:1::/64 range 53248 57343 2000:1:1:1::/64 range 53248 57343 dscp af23
+ 5168 deny udp 3000:1:1:1::/64 range 53248 57343 2000:1:1:1::/64 range 53248 57343 dscp af22
+ 5169 deny udp 3000:1:1:1::/64 range 53248 57343 2000:1:1:1::/64 range 53248 57343 dscp af21
+ 5170 deny udp 3000:1:1:1::/64 range 53248 57343 2000:1:1:1::/64 range 53248 57343 precedence immediate
+ 5171 deny udp 3000:1:1:1::/64 neq 40000 2000:1:1:1::/64 eq 30001
+ 5172 deny udp 3000:1:1:1::/64 eq 40000 2000:1:1:1::/64 neq 40001
+ 5173 deny udp 3000:1:1:1::/64 range 32768 36863 2000:1:1:1::/64 gt 57343
+ 5174 deny udp 3000:1:1:1::/64 lt 4096 2000:1:1:1::/64 range 40960 49151
+ 5175 deny udp 3000:1:1:1::/64 range 32768 36863 2000:1:1:1::/64 range 40960 49151
+ 5176 deny udp 3000:1:1:1::/64 gt 57343 2000:1:1:1::/64 lt 4096
+ 5177 deny udp 3000:1:1:1::/64 lt 4096 2000:1:1:1::/64 gt 57343
+ 5178 deny udp 3000:1:1:1::/64 gt 57343 2000:1:1:1::/64 gt 57343
+ 5179 deny udp 3000:1:1:1::/64 lt 4096 2000:1:1:1::/64 lt 4096
+ 5180 deny udp 2001:db8:161::/64 eq 20000 2001:db8:141::/64 eq 20001
+ 5186 deny udp 3000:2f:2f:2f::1/128 2000:2f:2f:2f::1/128
+ 5187 deny udp 3000:2b:2b:2b::1/128 2000:1:1:1::/64
+ 5188 deny udp 3000:1:1:1::/64 2000:2b:2b:2b::1/128
+ 5189 deny udp 3000:2a:2a:2a::1/128 any
+ 5190 deny udp any 2000:2a:2a:2a::1/128
+ 5191 deny udp 3000:7:7:7::/48 2000:7:7:7::/48
+ 5192 deny udp 3000:6:6:6::/65 2000:6:6:6::/65
+ 5193 deny udp 3000:5:5:5::/121 2000:5:5:5::/121
+ 5196 deny udp 3000:2:2:2::/97 any
+ 5199 deny udp any 2000:2:2:2::/97
+ 5200 permit udp 2001::/16 2001::/16
+
+ 5201 remark -----------------------------------------------------------
+ 5202 remark | Below are ICMPv6 test cases 1234567890                  |
+ 5203 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 5204 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 5220 deny pcp 2001:db8:161::/64 2001:db8:141::/64
+ 5225 deny pim 3000:1:1:1::/64 2000:1:1:1::/64
+ 5229 deny eigrp 3000:1:1:1::/64 2000:1:1:1::/64 precedence internet
+ 5230 permit eigrp 3000::/16 2000::/16
+ 5259 deny ospf 2001:db8:161::/64 2001:db8:141::/64 precedence internet
+ 5260 permit ospf 3000::/16 2000::/16
+ 5267 deny sctp 2001:db8:161::/64 2001:db8:141::/64
+ 5268 deny gre 2001:db8:161::/64 2001:db8:141::/64
+ 5269 deny icmpv6 3000:1:1:1::/64 2000:1:1:1::/64 nd-na
+ 5270 deny icmpv6 3000:1:1:1::/64 2000:1:1:1::/64 nd-ns
+ 5271 deny icmpv6 3000:1:1:1::/64 2000:1:1:1::/64 parameter-problem dscp cs1
+ 5272 deny icmpv6 3000:1:1:1::/64 2000:1:1:1::/64 parameter-problem dscp af13
+ 5273 deny icmpv6 3000:1:1:1::/64 2000:1:1:1::/64 parameter-problem dscp af12
+ 5274 deny icmpv6 3000:1:1:1::/64 2000:1:1:1::/64 parameter-problem dscp af11
+ 5275 deny icmpv6 3000:1:1:1::/64 2000:1:1:1::/64 parameter-problem precedence priority
+ 5276 deny icmpv6 3000:1:1:1::/64 2000:1:1:1::/64 252 100
+ 5277 deny icmpv6 3000:1:1:1::/64 2000:1:1:1::/64 252 200
+ 5278 deny icmpv6 3000:1:1:1::/64 2000:1:1:1::/64 time-exceeded
+ 5279 deny icmpv6 3000:1:1:1::/64 2000:1:1:1::/64 packet-too-big
+ 5281 deny icmpv6 3000:1:1:1::/64 2000:1:1:1::/64 port-unreachable
+ 5282 deny icmpv6 3000:1:1:1::/64 2000:1:1:1::/64 address-unreachable
+ 5283 deny icmpv6 3000:1:1:1::/64 2000:1:1:1::/64 destination-unreachable
+ 5284 deny icmpv6 2001:db8:161::/64 2001:db8:141::/64 echo-reply
+ 5285 deny icmpv6 2001:db8:161::/64 2001:db8:141::/64 echo
+ 5286 deny icmpv6 host 3000:a:a:a::1 host 2000:a:a:a::1
+ 5291 deny icmpv6 3000:4:4:4::/32 2000:4:4:4::/32
+ 5292 deny icmpv6 2001:db8:161:1::/64 2001:db8:141:1::/64
+ 5293 deny icmpv6 3000:2:2:2::/96 2000:2:2:2::/96
+ 5294 deny icmpv6 3000:4:4:4::/32 any
+ 5295 deny icmpv6 3000:3:3:3::/64 any
+ 5296 deny icmpv6 3000:2:2:2::/96 any
+ 5297 deny icmpv6 any 2000:4:4:4::/32
+ 5298 deny icmpv6 any 2000:3:3:3::/64
+ 5299 deny icmpv6 any 2000:2:2:2::/96
+ 5300 permit icmpv6 2001::/16 2001::/16
+
+ 5301 remark -----------------------------------------------------------
+ 5302 remark | Below are IPv6 test cases 1234567890                    |
+ 5303 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 5304 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 5309 deny ipv6 3000::0001/128 2000::0001/128
+ 5310 deny ipv6 3000::0002/127 2000::0002/127
+ 5311 deny ipv6 3000::0004/126 2000::0004/126
+ 5312 deny ipv6 3000::0008/125 2000::0008/125
+ 5313 deny ipv6 3000::0010/124 2000::0010/124
+ 5314 deny ipv6 3000::0020/123 2000::0020/123
+ 5315 deny ipv6 3000::0040/122 2000::0040/122
+ 5316 deny ipv6 3000::0080/121 2000::0080/121
+ 5317 deny ipv6 3000::0100/120 2000::0100/120
+ 5318 deny ipv6 3000::0200/119 2000::0200/119
+ 5319 deny ipv6 3000::0400/118 2000::0400/118
+ 5320 deny ipv6 3000::0800/117 2000::0800/117
+ 5321 deny ipv6 3000::1000/116 2000::1000/116
+ 5322 deny ipv6 3000::2000/115 2000::2000/115
+ 5323 deny ipv6 3000::4000/114 2000::4000/114
+ 5324 deny ipv6 3000::8000/113 2000::8000/113
+ 5325 deny ipv6 3000::0001:0/112 2000::0001:0/112
+ 5326 deny ipv6 3000::0002:0/111 2000::0002:0/111
+ 5327 deny ipv6 3000::0004:0/110 2000::0004:0/110
+ 5328 deny ipv6 3000::0008:0/109 2000::0008:0/109
+ 5329 deny ipv6 3000::0010:0/108 2000::0010:0/108
+ 5330 deny ipv6 3000::0020:0/107 2000::0020:0/107
+ 5331 deny ipv6 3000::0040:0/106 2000::0040:0/106
+ 5332 deny ipv6 3000::0080:0/105 2000::0080:0/105
+ 5333 deny ipv6 3000::0100:0/104 2000::0100:0/104
+ 5334 deny ipv6 3000::0200:0/103 2000::0200:0/103
+ 5335 deny ipv6 3000::0400:0/102 2000::0400:0/102
+ 5336 deny ipv6 3000::0800:0/101 2000::0800:0/101
+ 5337 deny ipv6 3000::1000:0/100 2000::1000:0/100
+ 5338 deny ipv6 3000::2000:0/99  2000::2000:0/99
+ 5339 deny ipv6 3000::4000:0/98  2000::4000:0/98
+ 5340 deny ipv6 3000::8000:0/97  2000::8000:0/97
+
+ 5358 deny ipv6 2001:db8:161::/64 2001:db8:141::/64 fragments
+ 5359 deny ipv6 2001:db8:161:2::/64 2001:db8:141:2::/64 
+ 5360 deny ipv6 3000:c:c:c::/64 2000:c:c:c::/64
+ 5376 deny ipv6 3000:1:1:1::/64 2000:1:1:1::/64 dscp cs1
+ 5377 deny ipv6 3000:1:1:1::/64 2000:1:1:1::/64 dscp af13
+ 5378 deny ipv6 3000:1:1:1::/64 2000:1:1:1::/64 dscp af12
+ 5379 deny ipv6 3000:1:1:1::/64 2000:1:1:1::/64 dscp af11
+ 5380 deny ipv6 2001:db8:161::/64 2001:db8:141::/64 precedence priority
+ 5384 deny ipv6 host 3000:b:b:b::1 host 2000:b:b:b::1 dscp default
+ 5385 deny ipv6 host 3000:b:b:b::1 host 2000:b:b:b::1 dscp cs1
+ 5386 deny ipv6 host 3000:a:a:a::1 host 2000:a:a:a::1
+ 5387 deny ipv6 host 3000:6:6:6::1 2000:1:1:1::/64
+ 5388 deny ipv6 3000:1:1:1::/64 host 2000:6:6:6::1
+ 5389 deny ipv6 host 3000:5:5:5::1 any
+ 5390 deny ipv6 any host 2000:5:5:5::1
+ 5391 deny ipv6 3000:4::/32     2000:4::/32
+ 5392 deny ipv6 3000:3:3:3::/64 2000:3:3:3::/64
+ 5393 deny ipv6 2001:db8:161:1::/96 2001:db8:141:1::/96
+ 5394 deny ipv6 3000:4::/32     any
+ 5395 deny ipv6 3000:3:3:3::/64 any
+ 5396 deny ipv6 3000:2:2:2::/96 any
+ 5397 deny ipv6 any 2000:4::/32
+ 5398 deny ipv6 any 2000:3:3:3::/64
+ 5399 deny ipv6 any 2000:2:2:2::/96
+ 5400 permit ipv6 ::/0 ::/0
+ 
+###
+
+interface HundredGigE0/0/0/0         ipv6 access-group ipv6_basic_in ingress 
+interface HundredGigE0/0/0/2         ipv6 access-group ipv6_basic_in ingress 
+interface HundredGigE0/0/0/4         ipv6 access-group ipv6_basic_in ingress 
+interface HundredGigE0/0/0/5         ipv6 access-group ipv6_basic_in ingress 
+interface HundredGigE0/0/0/6         ipv6 access-group ipv6_basic_in ingress 
+interface HundredGigE0/0/0/8         ipv6 access-group ipv6_basic_in ingress 
+interface HundredGigE0/0/0/9         ipv6 access-group ipv6_basic_in ingress 
+interface HundredGigE0/0/0/12        ipv6 access-group ipv6_basic_in ingress                                                   
+interface Bundle-Ether4509           ipv6 access-group ipv6_basic_in ingress 
+interface Bundle-Ether4510           ipv6 access-group ipv6_basic_in ingress 
+interface Bundle-Ether4511           ipv6 access-group ipv6_basic_in ingress 
+interface Bundle-Ether4512           ipv6 access-group ipv6_basic_in ingress 
+interface Bundle-Ether4513           ipv6 access-group ipv6_basic_in ingress 
+interface Bundle-Ether4514           ipv6 access-group ipv6_basic_in ingress 
+interface Bundle-Ether4515           ipv6 access-group ipv6_basic_in ingress 
+interface Bundle-Ether4516           ipv6 access-group ipv6_basic_in ingress                                                        
+interface Bundle-Ether1401           ipv6 access-group ipv6_basic_in ingress 
+interface FourHundredGigE0/0/0/13    ipv6 access-group ipv6_basic_in ingress 
+interface FourHundredGigE0/0/0/15    ipv6 access-group ipv6_basic_in ingress                                                        
+interface Bundle-Ether2401           ipv6 access-group ipv6_basic_in ingress 
+interface HundredGigE0/0/0/24        ipv6 access-group ipv6_basic_in ingress 
+interface HundredGigE0/0/0/30        ipv6 access-group ipv6_basic_in ingress 
+interface HundredGigE0/0/0/0.101     ipv6 access-group ipv6_basic_in ingress  
+interface Bundle-Ether4509.201       ipv6 access-group ipv6_basic_in ingress 
+                  
+
+### IPv6 EGRESS ACL #####################################################################
+
+#### 510 Entry
+
+ipv6 access-list ipv6_basic_out
+
+ 500 deny tcp 2001:db8:130::/64 eq  1 3001:db8:110::/64 eq 10
+ 501 deny tcp 2001:db8:130::/65 eq  2 3001:db8:110::/65 eq 11
+ 502 deny tcp 2001:db8:130::/66 eq  3 3001:db8:110::/66 eq 12
+ 503 deny tcp 2001:db8:130::/67 eq  4 3001:db8:110::/67 eq 13
+ 504 deny tcp 2001:db8:130::/68 eq  5 3001:db8:110::/68 eq 14
+ 505 deny tcp 2001:db8:130::/69 eq  6 3001:db8:110::/69 eq 15
+ 506 deny tcp 2001:db8:130::/70 eq  7 3001:db8:110::/70 eq 16
+ 507 deny tcp 2001:db8:130::/71 eq  8 3001:db8:110::/71 eq 17
+ 508 deny tcp 2001:db8:130::/72 eq  9 3001:db8:110::/72 eq 18
+ 509 deny tcp 2001:db8:130::/73 eq 10 3001:db8:110::/73 eq 19
+ 510 deny tcp 2001:db8:130::/74 eq 11 3001:db8:110::/74 eq 20
+ 511 deny tcp 2001:db8:130::/75 eq 12 3001:db8:110::/75 eq 21
+ 512 deny tcp 2001:db8:130::/76 eq 13 3001:db8:110::/76 eq 22
+ 513 deny tcp 2001:db8:130::/77 eq 14 3001:db8:110::/77 eq 23
+ 514 deny tcp 2001:db8:130::/78 eq 15 3001:db8:110::/78 eq 24
+ 515 deny tcp 2001:db8:130::/79 eq 16 3001:db8:110::/79 eq 25
+
+ 5501 remark -----------------------------------------------------------
+ 5502 remark | Below are TCP test cases 1234567890                     |
+ 5503 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 5504 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ 5545 deny tcp 2001:1:1:1::/64 eq smtp 3001:1:1:1::/64 eq 18000
+ 5546 deny tcp 2001:1:1:1::/64 eq ftp 3001:1:1:1::/64 eq 18000
+ 5547 deny tcp 2001:1:1:1::/64 eq ftp-data 3001:1:1:1::/64 eq 18000
+ 5548 deny tcp 2001:1:1:1::/64 eq 18000 3001:1:1:1::/64 eq telnet
+ 5549 deny tcp 2001:1:1:1::/64 eq 18000 3001:1:1:1::/64 eq uucp
+ 5550 deny tcp 2001:1:1:1::/64 eq 18000 3001:1:1:1::/64 eq www
+ 5569 deny tcp 2001:1:1:1::/64 range 53248 57343 3001:1:1:1::/64 range 53248 57343 dscp ef
+ 5570 deny tcp 2001:1:1:1::/64 range 40000 49999 3001:1:1:1::/64 range 40000 49999 precedence critical
+ 5575 deny tcp 2001:1:1:1::/64 range 30000 39999 3001:1:1:1::/64 range 40000 49999
+ 5579 deny tcp 2001:1:1:1::/64 lt 4000 3001:1:1:1::/64 lt 4000
+ 5600 permit tcp 2001::/16 3001::/16
+
+ 5601 remark -----------------------------------------------------------
+ 5602 remark | Below are UDP test cases 1234567890                     |
+ 5603 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 5604 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ 5645 deny udp 2001:1:1:1::/64 eq tftp 3001:1:1:1::/64 eq 18000
+ 5646 deny udp 2001:1:1:1::/64 eq domain 3001:1:1:1::/64 eq 18000
+ 5647 deny udp 2001:1:1:1::/64 eq who 3001:1:1:1::/64 eq 18000
+ 5648 deny udp 2001:1:1:1::/64 eq 18000 3001:1:1:1::/64 eq snmp
+ 5649 deny udp 2001:1:1:1::/64 eq 18000 3001:1:1:1::/64 eq snmptrap
+ 5650 deny udp 2001:1:1:1::/64 eq 18000 3001:1:1:1::/64 eq tacacs
+ 5674 deny udp 2001:1:1:1::/64 range 40000 49999 3001:1:1:1::/64 range 50000 59999
+ 5675 deny udp 2001:db8:141::/64 range 30000 39999 2001:db8:161::/64 range 40000 49999
+ 5679 deny udp 2001:1:1:1::/64 lt 4000 3001:1:1:1::/64 lt 4000
+ 5680 deny udp 2001:db8:141::/64 eq 20000 2001:db8:161::/64 eq 20001
+ 5700 permit udp 2001::/16 2001::/16
+
+ 5701 remark -----------------------------------------------------------
+ 5702 remark | Below are ICMPv6 test cases 1234567890                  |
+ 5703 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 5704 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ 5767 deny sctp 2001:db8:141::/64 2001:db8:161::/64
+ 5768 deny gre  2001:db8:141::/64 2001:db8:161::/64
+ 5769 deny icmpv6 2001:1:1:1::/64 3001:1:1:1::/64 nd-na
+ 5770 deny icmpv6 2001:1:1:1::/64 3001:1:1:1::/64 nd-ns
+ 5771 deny icmpv6 2001:1:1:1::/64 3001:1:1:1::/64 parameter-problem dscp cs1
+ 5772 deny icmpv6 2001:1:1:1::/64 3001:1:1:1::/64 parameter-problem dscp af13
+ 5783 deny icmpv6 2001:1:1:1::/64 3001:1:1:1::/64 destination-unreachable
+ 5784 deny icmpv6 2001:1:1:1::/64 3001:1:1:1::/64 echo-reply
+ 5785 deny icmpv6 2001:1:1:1::/64 3001:1:1:1::/64 echo
+ 5800 permit icmpv6 3000::/16 2000::/16
+
+ 5801 remark -----------------------------------------------------------
+ 5802 remark | Below are IPv6 test cases 1234567890                    |
+ 5803 remark | abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_[]{}|\;'.,/"<>`~ |
+ 5804 remark +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ 5809 deny ipv6 2001::0001/128   3001::0001/128
+ 5810 deny ipv6 2001::0002/127   3001::0002/127
+ 5811 deny ipv6 2001::0004/126   3001::0004/126
+ 5812 deny ipv6 2001::0008/125   3001::0008/125
+ 5813 deny ipv6 2001::0010/124   3001::0010/124
+ 5814 deny ipv6 2001::0020/123   3001::0020/123
+ 5815 deny ipv6 2001::0040/122   3001::0040/122
+ 5816 deny ipv6 2001::0080/121   3001::0080/121
+ 5817 deny ipv6 2001::0100/120   3001::0100/120
+ 5818 deny ipv6 2001::0200/119   3001::0200/119
+ 5819 deny ipv6 2001::0400/118   3001::0400/118
+ 5820 deny ipv6 2001::0800/117   3001::0800/117
+ 5821 deny ipv6 2001::1000/116   3001::1000/116
+ 5822 deny ipv6 2001::2000/115   3001::2000/115
+ 5823 deny ipv6 2001::4000/114   3001::4000/114
+ 5824 deny ipv6 2001::8000/113   3001::8000/113
+ 5825 deny ipv6 2001::0001:0/112 3001::0001:0/112
+ 5826 deny ipv6 2001::0002:0/111 3001::0002:0/111
+ 5827 deny ipv6 2001::0004:0/110 3001::0004:0/110
+ 5828 deny ipv6 2001::0008:0/109 3001::0008:0/109
+ 5829 deny ipv6 2001::0010:0/108 3001::0010:0/108
+ 5830 deny ipv6 2001::0020:0/107 3001::0020:0/107
+ 5831 deny ipv6 2001::0040:0/106 3001::0040:0/106
+ 5832 deny ipv6 2001::0080:0/105 3001::0080:0/105
+ 5833 deny ipv6 2001::0100:0/104 3001::0100:0/104
+ 5834 deny ipv6 2001::0200:0/103 3001::0200:0/103
+ 5835 deny ipv6 2001::0400:0/102 3001::0400:0/102
+ 5836 deny ipv6 2001::0800:0/101 3001::0800:0/101
+ 5837 deny ipv6 2001::1000:0/100 3001::1000:0/100
+ 5838 deny ipv6 2001::2000:0/99  3001::2000:0/99
+ 5839 deny ipv6 2001::4000:0/98  3001::4000:0/98
+ 5840 deny ipv6 2001::8000:0/97  3001::8000:0/97
+ 5843 deny ahp  2001:1:1:1::/64  3001:1:1:1::/64 dscp af11
+ 5844 deny ahp  2001:1:1:1::/113 3001:1:1:1::/113 precedence internet
+ 5845 deny ipv6 2001:2:2:2::/64  3001:2:2:2::/64 authen
+ 5846 permit ahp 2001::/16 3001::/16
+ 5847 deny ipv6 2001:db8:141::/64 2001:db8:161::/64 routing
+ 5850 deny ipv6 2001:db8:141::/64 2001:db8:161::/64 destopts
+ 5858 deny ipv6 2001:d:d:d::/64 3001:d:d:d::/64
+ 5860 deny ipv6 2001:c:c:c::/64 3001:c:c:c::/64
+ 5876 deny ipv6 2001:1:1:1::/64 3001:1:1:1::/64 dscp cs1
+ 5877 deny ipv6 2001:1:1:1::/64 3001:1:1:1::/64 dscp af13
+ 5878 deny ipv6 2001:1:1:1::/64 3001:1:1:1::/64 dscp af12
+ 5879 deny ipv6 2001:1:1:1::/64 3001:1:1:1::/64 dscp af11
+ 5880 deny ipv6 2001:db8:141::/64 2001:db8:161::/64 precedence priority
+ 5884 deny ipv6 host 2001:b:b:b::1 host 3001:b:b:b::1 dscp default
+ 5885 deny ipv6 host 2001:b:b:b::1 host 3001:b:b:b::1 dscp cs1
+ 5886 deny ipv6 host 2001:a:a:a::1 host 3001:a:a:a::1
+ 5889 deny ipv6 host 2001:5:5:5::1 any
+ 5890 deny ipv6 any host 3001:5:5:5::1
+ 5891 deny ipv6 2001:db8:141:3::/65 2001:db8:161:3::/65
+ 5892 deny ipv6 2001:3:3:3::/124 3001:3:3:3::/124
+ 5893 deny ipv6 2001:db8:141:1::/112 2001:db8:161:1::/112
+ 5894 deny ipv6 2001:4:4::/48 any
+ 5895 deny ipv6 2001:3:3:3::/80 any
+ 5896 deny ipv6 2001:2:2:2::/112 any
+ 5897 deny ipv6 any 3001:4::/32
+ 5898 deny ipv6 any 3001:3:3:3::/64
+ 5899 deny ipv6 any 3001:2:2:2::/96
+ 5900 permit ipv6 any any
+ 
+####
+
+interface HundredGigE0/0/0/0         ipv6 access-group ipv6_basic_out egress 
+interface HundredGigE0/0/0/2         ipv6 access-group ipv6_basic_out egress 
+interface HundredGigE0/0/0/4         ipv6 access-group ipv6_basic_out egress 
+interface HundredGigE0/0/0/5         ipv6 access-group ipv6_basic_out egress 
+interface HundredGigE0/0/0/6         ipv6 access-group ipv6_basic_out egress 
+interface HundredGigE0/0/0/8         ipv6 access-group ipv6_basic_out egress 
+interface HundredGigE0/0/0/9         ipv6 access-group ipv6_basic_out egress 
+interface HundredGigE0/0/0/12        ipv6 access-group ipv6_basic_out egress                                                             
+interface Bundle-Ether4509           ipv6 access-group ipv6_basic_out egress 
+interface Bundle-Ether4510           ipv6 access-group ipv6_basic_out egress 
+interface Bundle-Ether4511           ipv6 access-group ipv6_basic_out egress 
+interface Bundle-Ether4512           ipv6 access-group ipv6_basic_out egress 
+interface Bundle-Ether4513           ipv6 access-group ipv6_basic_out egress 
+interface Bundle-Ether4514           ipv6 access-group ipv6_basic_out egress 
+interface Bundle-Ether4515           ipv6 access-group ipv6_basic_out egress 
+interface Bundle-Ether4516           ipv6 access-group ipv6_basic_out egress                                                           
+interface Bundle-Ether1401           ipv6 access-group ipv6_basic_out egress 
+interface FourHundredGigE0/0/0/13    ipv6 access-group ipv6_basic_out egress 
+interface FourHundredGigE0/0/0/15    ipv6 access-group ipv6_basic_out egress                                                          
+interface Bundle-Ether2401           ipv6 access-group ipv6_basic_out egress 
+interface HundredGigE0/0/0/24        ipv6 access-group ipv6_basic_out egress 
+interface HundredGigE0/0/0/30        ipv6 access-group ipv6_basic_out egress 
+interface HundredGigE0/0/0/0.101     ipv6 access-group ipv6_basic_out egress  
+interface Bundle-Ether4509.201       ipv6 access-group ipv6_basic_out egress 
+               
+#### IPv4 BGPFS ####
+
+### Total 2512 TCAM entries ### Each class-map uses 121 TCAM Entries
+
+class-map type traffic match-all bgpfs_ipv4_0001
+ match destination-address ipv4 141.0.0.0/24
+ match source-address      ipv4 161.0.0.0/24
+ match protocol udp
+ match destination-port         10000-20000
+ match source-port              10000-20000 
+ end-class-map
+! 
+class-map type traffic match-all bgpfs_ipv4_0002
+ match destination-address ipv4 141.0.0.0/24
+ match source-address      ipv4 161.0.0.0/24
+ match protocol tcp
+ match destination-port         10000-20000 
+ match source-port              10000-20000 
+ end-class-map
+!
+class-map type traffic match-all bgpfs_ipv4_0003
+ match destination-address ipv4 141.0.1.0/24
+ match source-address      ipv4 161.0.1.0/24
+ match protocol udp
+ match destination-port         10000-20000
+ match source-port              10000-20000 
+ end-class-map
+! 
+class-map type traffic match-all bgpfs_ipv4_0004
+ match destination-address ipv4 141.0.1.0/24
+ match source-address      ipv4 161.0.1.0/24
+ match protocol tcp
+ match destination-port         10000-20000 
+ match source-port              10000-20000 
+ end-class-map
+!
+class-map type traffic match-all bgpfs_ipv4_0005
+ match destination-address ipv4 141.0.2.0/24
+ match source-address      ipv4 161.0.2.0/24
+ match protocol udp
+ match destination-port         10000-20000
+ match source-port              10000-20000 
+ end-class-map
+! 
+class-map type traffic match-all bgpfs_ipv4_0006
+ match destination-address ipv4 141.0.2.0/24
+ match source-address      ipv4 161.0.2.0/24
+ match protocol tcp
+ match destination-port         10000-20000 
+ match source-port              10000-20000 
+ end-class-map
+!
+class-map type traffic match-all bgpfs_ipv4_0007
+ match destination-address ipv4 141.0.3.0/24
+ match source-address      ipv4 161.0.3.0/24
+ match protocol udp
+ match destination-port         10000-20000
+ match source-port              10000-20000 
+ end-class-map
+! 
+class-map type traffic match-all bgpfs_ipv4_0008
+ match destination-address ipv4 141.0.3.0/24
+ match source-address      ipv4 161.0.3.0/24
+ match protocol tcp
+ match destination-port         10000-20000 
+ match source-port              10000-20000 
+ end-class-map
+!
+class-map type traffic match-all bgpfs_ipv4_0009
+ match destination-address ipv4 141.0.4.0/24
+ match source-address      ipv4 161.0.4.0/24
+ match protocol udp
+ match destination-port         10000-20000
+ match source-port              10000-20000 
+ end-class-map
+! 
+class-map type traffic match-all bgpfs_ipv4_0010
+ match destination-address ipv4 141.0.4.0/24
+ match source-address      ipv4 161.0.4.0/24
+ match protocol tcp
+ match destination-port         10000-20000 
+ match source-port              10000-20000 
+ end-class-map
+!
+class-map type traffic match-all bgpfs_ipv4_0011
+ match destination-address ipv4 161.0.0.0/24
+ match source-address      ipv4 141.0.0.0/24
+ match protocol udp
+ match destination-port         20000-30000
+ match source-port              20000-30000 
+ end-class-map
+! 
+class-map type traffic match-all bgpfs_ipv4_0012
+ match destination-address ipv4 161.0.0.0/24
+ match source-address      ipv4 141.0.0.0/24
+ match protocol tcp
+ match destination-port         20000-30000 
+ match source-port              20000-30000 
+ end-class-map
+!
+class-map type traffic match-all bgpfs_ipv4_0013
+ match destination-address ipv4 161.0.1.0/24
+ match source-address      ipv4 141.0.1.0/24
+ match protocol udp
+ match destination-port         20000-30000
+ match source-port              20000-30000 
+ end-class-map
+! 
+class-map type traffic match-all bgpfs_ipv4_0014
+ match destination-address ipv4 161.0.1.0/24
+ match source-address      ipv4 141.0.1.0/24
+ match protocol tcp
+ match destination-port         20000-30000 
+ match source-port              20000-30000 
+ end-class-map
+ 
+class-map type traffic match-all bgpfs_ipv4_0015
+ match destination-address ipv4 161.0.2.0/24
+ match source-address      ipv4 141.0.2.0/24
+ match protocol udp
+ match destination-port         20000-30000
+ match source-port              20000-30000 
+ end-class-map
+! 
+class-map type traffic match-all bgpfs_ipv4_0016
+ match destination-address ipv4 161.0.2.0/24
+ match source-address      ipv4 141.0.2.0/24
+ match protocol tcp
+ match destination-port         20000-30000 
+ match source-port              20000-30000 
+ end-class-map
+ 
+class-map type traffic match-all bgpfs_ipv4_0017
+ match destination-address ipv4 161.0.3.0/24
+ match source-address      ipv4 141.0.3.0/24
+ match protocol udp
+ match destination-port         20000-30000
+ match source-port              20000-30000 
+ end-class-map
+! 
+class-map type traffic match-all bgpfs_ipv4_0018
+ match destination-address ipv4 161.0.3.0/24
+ match source-address      ipv4 141.0.3.0/24
+ match protocol tcp
+ match destination-port         20000-30000 
+ match source-port              20000-30000 
+ end-class-map
+ 
+class-map type traffic match-all bgpfs_ipv4_0019
+ match destination-address ipv4 161.0.4.0/24
+ match source-address      ipv4 141.0.4.0/24
+ match protocol udp
+ match destination-port         20000-30000
+ match source-port              20000-30000 
+ end-class-map
+! 
+class-map type traffic match-all bgpfs_ipv4_0020
+ match destination-address ipv4 161.0.4.0/24
+ match source-address      ipv4 141.0.4.0/24
+ match protocol tcp
+ match destination-port         20000-30000 
+ match source-port              20000-30000 
+ end-class-map
+
+#### 81 Entries ####
+
+class-map type traffic match-all bgpfs_ipv4_0021
+ match destination-address ipv4 161.0.5.0/24
+ match source-address      ipv4 141.0.5.0/24
+ match protocol udp
+ match destination-port         20000-21018 
+ match source-port              20000-21018 
+ end-class-map
+
+##### 9 Entries ####
+
+class-map type traffic match-all bgpfs_ipv4_0022
+ match destination-address ipv4 161.0.5.0/24
+ match source-address      ipv4 141.0.5.0/24
+ match protocol tcp
+ match destination-port         20000-20018
+ match source-port              20000-20018 
+ end-class-map
+
+##### 1 Entries ####
+
+class-map type traffic match-all bgpfs_ipv4_0023
+ match destination-address ipv4 161.0.6.0/24
+ match source-address      ipv4 141.0.6.0/24
+ match protocol udp
+ match destination-port         20000 
+ match source-port              20000 
+ end-class-map
+
+##### 1 Entries ####
+ 
+class-map type traffic match-all bgpfs_ipv4_0024
+ match destination-address ipv4 161.0.6.0/24
+ match source-address      ipv4 141.0.6.0/24
+ match protocol tcp
+ match destination-port         20000
+ match source-port              20000 
+ end-class-map
+
+policy-map type pbr bgpfs_ipv4
+ class type traffic bgpfs_ipv4_0001 
+  drop
+ class type traffic bgpfs_ipv4_0002 
+  drop
+ class type traffic bgpfs_ipv4_0003 
+  drop
+ class type traffic bgpfs_ipv4_0004 
+  drop
+ class type traffic bgpfs_ipv4_0005 
+  drop
+ class type traffic bgpfs_ipv4_0006 
+  drop
+ class type traffic bgpfs_ipv4_0007 
+  drop
+ class type traffic bgpfs_ipv4_0008 
+  drop
+ class type traffic bgpfs_ipv4_0009 
+  drop
+ class type traffic bgpfs_ipv4_0010 
+  drop
+ class type traffic bgpfs_ipv4_0011 
+  drop
+ class type traffic bgpfs_ipv4_0012 
+  drop
+ class type traffic bgpfs_ipv4_0013
+  drop
+ class type traffic bgpfs_ipv4_0014 
+  drop
+ class type traffic bgpfs_ipv4_0015 
+  drop
+ class type traffic bgpfs_ipv4_0016 
+  drop
+ class type traffic bgpfs_ipv4_0017 
+  drop
+ class type traffic bgpfs_ipv4_0018 
+  drop
+ class type traffic bgpfs_ipv4_0019
+  drop
+ class type traffic bgpfs_ipv4_0020
+  drop
+ class type traffic bgpfs_ipv4_0021
+  drop
+ class type traffic bgpfs_ipv4_0022
+  drop
+ class type traffic bgpfs_ipv4_0023
+  drop
+ class type traffic bgpfs_ipv4_0024
+  drop
+ class type traffic class-default 
+ ! 
+ end-policy-map
+! 
+router bgp 100
+ address-family ipv4 flowspec
+ !
+ neighbor 6.0.0.0
+  address-family ipv4 flowspec
+  !
+flowspec
+ local-install interface-all
+ address-family ipv4
+  service-policy type pbr bgpfs_ipv4
+
+#### IPv6 BGP FS ####
+
+#### 490 TCAM Entries ####
+
+class-map type traffic match-all bgpfs_ipv6_0001
+ match destination-address ipv6 2001:db8:141::/64
+ match source-address      ipv6 2001:db8:161::/64
+ match protocol udp
+ match destination-port         10000-20000
+ match source-port              10000-20000 
+ end-class-map
+! 
+class-map type traffic match-all bgpfs_ipv6_0002
+ match destination-address ipv6 2001:db8:141::/64
+ match source-address      ipv6 2001:db8:161::/64
+ match protocol tcp
+ match destination-port         10000-20000
+ match source-port              10000-20000 
+ end-class-map
+! 
+class-map type traffic match-all bgpfs_ipv6_0003
+ match destination-address ipv6 2001:db8:141:1::/64
+ match source-address      ipv6 2001:db8:161:1::/64
+ match protocol udp
+ match destination-port         10000-20000
+ match source-port              10000-20000 
+ end-class-map
+! 
+class-map type traffic match-all bgpfs_ipv6_0004
+ match destination-address ipv6 2001:db8:141:1::/64
+ match source-address      ipv6 2001:db8:161:1::/64
+ match protocol tcp
+ match destination-port         10000-20000
+ match source-port              10000-20000 
+ end-class-map
+! 
+
+class-map type traffic match-all bgpfs_ipv6_0005
+ match destination-address ipv6 2001:db8:141:2::/64
+ match source-address      ipv6 2001:db8:161:2::/64
+ match protocol udp
+ match destination-port         10000-10002
+ match source-port              10000-10002 
+ end-class-map
+! 
+class-map type traffic match-all bgpfs_ipv6_0006
+ match destination-address ipv6 2001:db8:141:2::/64
+ match source-address      ipv6 2001:db8:161:2::/64
+ match protocol tcp
+ match destination-port         10000-10002
+ match source-port              10000
+ end-class-map
+! 
+
+policy-map type pbr bgpfs_ipv6
+ class type traffic bgpfs_ipv6_0001 
+  drop
+ class type traffic bgpfs_ipv6_0002
+  drop
+ class type traffic bgpfs_ipv6_0003
+  drop
+ class type traffic bgpfs_ipv6_0004
+  drop
+ class type traffic bgpfs_ipv6_0005
+  drop
+ class type traffic bgpfs_ipv6_0006
+  drop
+ class type traffic class-default 
+ ! 
+ end-policy-map
+! 
+router bgp 100
+ address-family ipv6 flowspec
+ !
+ neighbor 2001:db8:6::
+  address-family ipv6 flowspec
+  !
+flowspec
+ local-install interface-all
+ address-family ipv6
+  service-policy type pbr bgpfs_ipv6
+
+#### V4 LPTS ####
+
+### 200 IPv4 BGP Sessions 
+
+route-policy PASS-ALL
+  pass
+end-policy
+
+router bgp 100
+ bgp router-id 4.0.0.0
+ address-family ipv4 unicast
+ address-family ipv6 unicast
+
+neighbor 44.31.0.2 
+ remote-as 10000
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.1.2 
+ remote-as 10001
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.2.2 
+ remote-as 10002
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.3.2 
+ remote-as 10003
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.4.2 
+ remote-as 10004
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.5.2 
+ remote-as 10005
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.6.2 
+ remote-as 10006
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.7.2 
+ remote-as 10007
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.8.2 
+ remote-as 10008
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.9.2 
+ remote-as 10009
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.10.2 
+ remote-as 10010
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.11.2 
+ remote-as 10011
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.12.2 
+ remote-as 10012
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.13.2 
+ remote-as 10013
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.14.2 
+ remote-as 10014
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.15.2 
+ remote-as 10015
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.16.2 
+ remote-as 10016
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.17.2 
+ remote-as 10017
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.18.2 
+ remote-as 10018
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.19.2 
+ remote-as 10019
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.20.2 
+ remote-as 10020
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.21.2 
+ remote-as 10021
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.22.2 
+ remote-as 10022
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.23.2 
+ remote-as 10023
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.24.2 
+ remote-as 10024
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.25.2 
+ remote-as 10025
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.26.2 
+ remote-as 10026
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.27.2 
+ remote-as 10027
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.28.2 
+ remote-as 10028
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.29.2 
+ remote-as 10029
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.30.2 
+ remote-as 10030
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.31.2 
+ remote-as 10031
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.32.2 
+ remote-as 10032
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.33.2 
+ remote-as 10033
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.34.2 
+ remote-as 10034
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.35.2 
+ remote-as 10035
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.36.2 
+ remote-as 10036
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.37.2 
+ remote-as 10037
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.38.2 
+ remote-as 10038
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.39.2 
+ remote-as 10039
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.40.2 
+ remote-as 10040
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.41.2 
+ remote-as 10041
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.42.2 
+ remote-as 10042
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.43.2 
+ remote-as 10043
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.44.2 
+ remote-as 10044
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.45.2 
+ remote-as 10045
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.46.2 
+ remote-as 10046
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.47.2 
+ remote-as 10047
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.48.2 
+ remote-as 10048
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.49.2 
+ remote-as 10049
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.50.2 
+ remote-as 10050
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.51.2 
+ remote-as 10051
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.52.2 
+ remote-as 10052
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.53.2 
+ remote-as 10053
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.54.2 
+ remote-as 10054
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.55.2 
+ remote-as 10055
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.56.2 
+ remote-as 10056
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.57.2 
+ remote-as 10057
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.58.2 
+ remote-as 10058
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.59.2 
+ remote-as 10059
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.60.2 
+ remote-as 10060
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.61.2 
+ remote-as 10061
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.62.2 
+ remote-as 10062
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.63.2 
+ remote-as 10063
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.64.2 
+ remote-as 10064
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.65.2 
+ remote-as 10065
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.66.2 
+ remote-as 10066
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.67.2 
+ remote-as 10067
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.68.2 
+ remote-as 10068
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.69.2 
+ remote-as 10069
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.70.2 
+ remote-as 10070
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.71.2 
+ remote-as 10071
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.72.2 
+ remote-as 10072
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.73.2 
+ remote-as 10073
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.74.2 
+ remote-as 10074
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.75.2 
+ remote-as 10075
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.76.2 
+ remote-as 10076
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.77.2 
+ remote-as 10077
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.78.2 
+ remote-as 10078
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.79.2 
+ remote-as 10079
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.80.2 
+ remote-as 10080
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.81.2 
+ remote-as 10081
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.82.2 
+ remote-as 10082
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.83.2 
+ remote-as 10083
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.84.2 
+ remote-as 10084
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.85.2 
+ remote-as 10085
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.86.2 
+ remote-as 10086
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.87.2 
+ remote-as 10087
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.88.2 
+ remote-as 10088
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.89.2 
+ remote-as 10089
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.90.2 
+ remote-as 10090
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.91.2 
+ remote-as 10091
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.92.2 
+ remote-as 10092
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.93.2 
+ remote-as 10093
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.94.2 
+ remote-as 10094
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.95.2 
+ remote-as 10095
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.96.2 
+ remote-as 10096
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.97.2 
+ remote-as 10097
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.98.2 
+ remote-as 10098
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.99.2 
+ remote-as 10099
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.100.2 
+ remote-as 10100
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.101.2 
+ remote-as 10101
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.102.2 
+ remote-as 10102
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.103.2 
+ remote-as 10103
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.104.2 
+ remote-as 10104
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.105.2 
+ remote-as 10105
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.106.2 
+ remote-as 10106
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.107.2 
+ remote-as 10107
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.108.2 
+ remote-as 10108
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.109.2 
+ remote-as 10109
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.110.2 
+ remote-as 10110
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.111.2 
+ remote-as 10111
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.112.2 
+ remote-as 10112
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.113.2 
+ remote-as 10113
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.114.2 
+ remote-as 10114
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.115.2 
+ remote-as 10115
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.116.2 
+ remote-as 10116
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.117.2 
+ remote-as 10117
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.118.2 
+ remote-as 10118
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.119.2 
+ remote-as 10119
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.120.2 
+ remote-as 10120
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.121.2 
+ remote-as 10121
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.122.2 
+ remote-as 10122
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.123.2 
+ remote-as 10123
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.124.2 
+ remote-as 10124
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.125.2 
+ remote-as 10125
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.126.2 
+ remote-as 10126
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.127.2 
+ remote-as 10127
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.128.2 
+ remote-as 10128
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.129.2 
+ remote-as 10129
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.130.2 
+ remote-as 10130
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.131.2 
+ remote-as 10131
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.132.2 
+ remote-as 10132
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.133.2 
+ remote-as 10133
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.134.2 
+ remote-as 10134
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.135.2 
+ remote-as 10135
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.136.2 
+ remote-as 10136
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.137.2 
+ remote-as 10137
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.138.2 
+ remote-as 10138
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.139.2 
+ remote-as 10139
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.140.2 
+ remote-as 10140
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.141.2 
+ remote-as 10141
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.142.2 
+ remote-as 10142
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.143.2 
+ remote-as 10143
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.144.2 
+ remote-as 10144
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.145.2 
+ remote-as 10145
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.146.2 
+ remote-as 10146
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.147.2 
+ remote-as 10147
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.148.2 
+ remote-as 10148
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.149.2 
+ remote-as 10149
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.150.2 
+ remote-as 10150
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.151.2 
+ remote-as 10151
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.152.2 
+ remote-as 10152
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.153.2 
+ remote-as 10153
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.154.2 
+ remote-as 10154
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.155.2 
+ remote-as 10155
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.156.2 
+ remote-as 10156
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.157.2 
+ remote-as 10157
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.158.2 
+ remote-as 10158
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.159.2 
+ remote-as 10159
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.160.2 
+ remote-as 10160
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.161.2 
+ remote-as 10161
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.162.2 
+ remote-as 10162
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.163.2 
+ remote-as 10163
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.164.2 
+ remote-as 10164
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.165.2 
+ remote-as 10165
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.166.2 
+ remote-as 10166
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.167.2 
+ remote-as 10167
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.168.2 
+ remote-as 10168
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.169.2 
+ remote-as 10169
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.170.2 
+ remote-as 10170
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.171.2 
+ remote-as 10171
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.172.2 
+ remote-as 10172
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.173.2 
+ remote-as 10173
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.174.2 
+ remote-as 10174
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.175.2 
+ remote-as 10175
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.176.2 
+ remote-as 10176
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.177.2 
+ remote-as 10177
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.178.2 
+ remote-as 10178
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.179.2 
+ remote-as 10179
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.180.2 
+ remote-as 10180
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.181.2 
+ remote-as 10181
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.182.2 
+ remote-as 10182
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.183.2 
+ remote-as 10183
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.184.2 
+ remote-as 10184
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.185.2 
+ remote-as 10185
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.186.2 
+ remote-as 10186
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.187.2 
+ remote-as 10187
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.188.2 
+ remote-as 10188
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.189.2 
+ remote-as 10189
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.190.2 
+ remote-as 10190
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.191.2 
+ remote-as 10191
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.192.2 
+ remote-as 10192
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.193.2 
+ remote-as 10193
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.194.2 
+ remote-as 10194
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.195.2 
+ remote-as 10195
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.196.2 
+ remote-as 10196
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.197.2 
+ remote-as 10197
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.198.2 
+ remote-as 10198
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+neighbor 44.31.199.2 
+ remote-as 10199
+ address-family ipv4 unicast route-policy PASS-ALL in
+ address-family ipv4 unicast route-policy PASS-ALL out
+
+##### IPv6 LPTS #####
+
+### 200 IPv6 BGP Session
+
+router bgp 100
+ bgp router-id 4.0.0.0
+ address-family ipv6 unicast
+ 
+neighbor 2001:db8:44:31:00::2 remote-as 10000
+neighbor 2001:db8:44:31:01::2 remote-as 10001
+neighbor 2001:db8:44:31:02::2 remote-as 10002
+neighbor 2001:db8:44:31:03::2 remote-as 10003
+neighbor 2001:db8:44:31:04::2 remote-as 10004
+neighbor 2001:db8:44:31:05::2 remote-as 10005
+neighbor 2001:db8:44:31:06::2 remote-as 10006
+neighbor 2001:db8:44:31:07::2 remote-as 10007
+neighbor 2001:db8:44:31:08::2 remote-as 10008
+neighbor 2001:db8:44:31:09::2 remote-as 10009
+neighbor 2001:db8:44:31:0A::2 remote-as 10010
+neighbor 2001:db8:44:31:0B::2 remote-as 10011
+neighbor 2001:db8:44:31:0C::2 remote-as 10012
+neighbor 2001:db8:44:31:0D::2 remote-as 10013
+neighbor 2001:db8:44:31:0E::2 remote-as 10014
+neighbor 2001:db8:44:31:0F::2 remote-as 10015
+neighbor 2001:db8:44:31:10::2 remote-as 10016
+neighbor 2001:db8:44:31:11::2 remote-as 10017
+neighbor 2001:db8:44:31:12::2 remote-as 10018
+neighbor 2001:db8:44:31:13::2 remote-as 10019
+neighbor 2001:db8:44:31:14::2 remote-as 10020
+neighbor 2001:db8:44:31:15::2 remote-as 10021
+neighbor 2001:db8:44:31:16::2 remote-as 10022
+neighbor 2001:db8:44:31:17::2 remote-as 10023
+neighbor 2001:db8:44:31:18::2 remote-as 10024
+neighbor 2001:db8:44:31:19::2 remote-as 10025
+neighbor 2001:db8:44:31:1A::2 remote-as 10026
+neighbor 2001:db8:44:31:1B::2 remote-as 10027
+neighbor 2001:db8:44:31:1C::2 remote-as 10028
+neighbor 2001:db8:44:31:1D::2 remote-as 10029
+neighbor 2001:db8:44:31:1E::2 remote-as 10030
+neighbor 2001:db8:44:31:1F::2 remote-as 10031
+neighbor 2001:db8:44:31:20::2 remote-as 10032
+neighbor 2001:db8:44:31:21::2 remote-as 10033
+neighbor 2001:db8:44:31:22::2 remote-as 10034
+neighbor 2001:db8:44:31:23::2 remote-as 10035
+neighbor 2001:db8:44:31:24::2 remote-as 10036
+neighbor 2001:db8:44:31:25::2 remote-as 10037
+neighbor 2001:db8:44:31:26::2 remote-as 10038
+neighbor 2001:db8:44:31:27::2 remote-as 10039
+neighbor 2001:db8:44:31:28::2 remote-as 10040
+neighbor 2001:db8:44:31:29::2 remote-as 10041
+neighbor 2001:db8:44:31:2A::2 remote-as 10042
+neighbor 2001:db8:44:31:2B::2 remote-as 10043
+neighbor 2001:db8:44:31:2C::2 remote-as 10044
+neighbor 2001:db8:44:31:2D::2 remote-as 10045
+neighbor 2001:db8:44:31:2E::2 remote-as 10046
+neighbor 2001:db8:44:31:2F::2 remote-as 10047
+neighbor 2001:db8:44:31:30::2 remote-as 10048
+neighbor 2001:db8:44:31:31::2 remote-as 10049
+neighbor 2001:db8:44:31:32::2 remote-as 10050
+neighbor 2001:db8:44:31:33::2 remote-as 10051
+neighbor 2001:db8:44:31:34::2 remote-as 10052
+neighbor 2001:db8:44:31:35::2 remote-as 10053
+neighbor 2001:db8:44:31:36::2 remote-as 10054
+neighbor 2001:db8:44:31:37::2 remote-as 10055
+neighbor 2001:db8:44:31:38::2 remote-as 10056
+neighbor 2001:db8:44:31:39::2 remote-as 10057
+neighbor 2001:db8:44:31:3A::2 remote-as 10058
+neighbor 2001:db8:44:31:3B::2 remote-as 10059
+neighbor 2001:db8:44:31:3C::2 remote-as 10060
+neighbor 2001:db8:44:31:3D::2 remote-as 10061
+neighbor 2001:db8:44:31:3E::2 remote-as 10062
+neighbor 2001:db8:44:31:3F::2 remote-as 10063
+neighbor 2001:db8:44:31:40::2 remote-as 10064
+neighbor 2001:db8:44:31:41::2 remote-as 10065
+neighbor 2001:db8:44:31:42::2 remote-as 10066
+neighbor 2001:db8:44:31:43::2 remote-as 10067
+neighbor 2001:db8:44:31:44::2 remote-as 10068
+neighbor 2001:db8:44:31:45::2 remote-as 10069
+neighbor 2001:db8:44:31:46::2 remote-as 10070
+neighbor 2001:db8:44:31:47::2 remote-as 10071
+neighbor 2001:db8:44:31:48::2 remote-as 10072
+neighbor 2001:db8:44:31:49::2 remote-as 10073
+neighbor 2001:db8:44:31:4A::2 remote-as 10074
+neighbor 2001:db8:44:31:4B::2 remote-as 10075
+neighbor 2001:db8:44:31:4C::2 remote-as 10076
+neighbor 2001:db8:44:31:4D::2 remote-as 10077
+neighbor 2001:db8:44:31:4E::2 remote-as 10078
+neighbor 2001:db8:44:31:4F::2 remote-as 10079
+neighbor 2001:db8:44:31:50::2 remote-as 10080
+neighbor 2001:db8:44:31:51::2 remote-as 10081
+neighbor 2001:db8:44:31:52::2 remote-as 10082
+neighbor 2001:db8:44:31:53::2 remote-as 10083
+neighbor 2001:db8:44:31:54::2 remote-as 10084
+neighbor 2001:db8:44:31:55::2 remote-as 10085
+neighbor 2001:db8:44:31:56::2 remote-as 10086
+neighbor 2001:db8:44:31:57::2 remote-as 10087
+neighbor 2001:db8:44:31:58::2 remote-as 10088
+neighbor 2001:db8:44:31:59::2 remote-as 10089
+neighbor 2001:db8:44:31:5A::2 remote-as 10090
+neighbor 2001:db8:44:31:5B::2 remote-as 10091
+neighbor 2001:db8:44:31:5C::2 remote-as 10092
+neighbor 2001:db8:44:31:5D::2 remote-as 10093
+neighbor 2001:db8:44:31:5E::2 remote-as 10094
+neighbor 2001:db8:44:31:5F::2 remote-as 10095
+neighbor 2001:db8:44:31:60::2 remote-as 10096
+neighbor 2001:db8:44:31:61::2 remote-as 10097
+neighbor 2001:db8:44:31:62::2 remote-as 10098
+neighbor 2001:db8:44:31:63::2 remote-as 10099
+neighbor 2001:db8:44:31:64::2 remote-as 10100
+neighbor 2001:db8:44:31:65::2 remote-as 10101
+neighbor 2001:db8:44:31:66::2 remote-as 10102
+neighbor 2001:db8:44:31:67::2 remote-as 10103
+neighbor 2001:db8:44:31:68::2 remote-as 10104
+neighbor 2001:db8:44:31:69::2 remote-as 10105
+neighbor 2001:db8:44:31:6A::2 remote-as 10106
+neighbor 2001:db8:44:31:6B::2 remote-as 10107
+neighbor 2001:db8:44:31:6C::2 remote-as 10108
+neighbor 2001:db8:44:31:6D::2 remote-as 10109
+neighbor 2001:db8:44:31:6E::2 remote-as 10110
+neighbor 2001:db8:44:31:6F::2 remote-as 10111
+neighbor 2001:db8:44:31:70::2 remote-as 10112
+neighbor 2001:db8:44:31:71::2 remote-as 10113
+neighbor 2001:db8:44:31:72::2 remote-as 10114
+neighbor 2001:db8:44:31:73::2 remote-as 10115
+neighbor 2001:db8:44:31:74::2 remote-as 10116
+neighbor 2001:db8:44:31:75::2 remote-as 10117
+neighbor 2001:db8:44:31:76::2 remote-as 10118
+neighbor 2001:db8:44:31:77::2 remote-as 10119
+neighbor 2001:db8:44:31:78::2 remote-as 10120
+neighbor 2001:db8:44:31:79::2 remote-as 10121
+neighbor 2001:db8:44:31:7A::2 remote-as 10122
+neighbor 2001:db8:44:31:7B::2 remote-as 10123
+neighbor 2001:db8:44:31:7C::2 remote-as 10124
+neighbor 2001:db8:44:31:7D::2 remote-as 10125
+neighbor 2001:db8:44:31:7E::2 remote-as 10126
+neighbor 2001:db8:44:31:7F::2 remote-as 10127
+neighbor 2001:db8:44:31:80::2 remote-as 10128
+neighbor 2001:db8:44:31:81::2 remote-as 10129
+neighbor 2001:db8:44:31:82::2 remote-as 10130
+neighbor 2001:db8:44:31:83::2 remote-as 10131
+neighbor 2001:db8:44:31:84::2 remote-as 10132
+neighbor 2001:db8:44:31:85::2 remote-as 10133
+neighbor 2001:db8:44:31:86::2 remote-as 10134
+neighbor 2001:db8:44:31:87::2 remote-as 10135
+neighbor 2001:db8:44:31:88::2 remote-as 10136
+neighbor 2001:db8:44:31:89::2 remote-as 10137
+neighbor 2001:db8:44:31:8A::2 remote-as 10138
+neighbor 2001:db8:44:31:8B::2 remote-as 10139
+neighbor 2001:db8:44:31:8C::2 remote-as 10140
+neighbor 2001:db8:44:31:8D::2 remote-as 10141
+neighbor 2001:db8:44:31:8E::2 remote-as 10142
+neighbor 2001:db8:44:31:8F::2 remote-as 10143
+neighbor 2001:db8:44:31:90::2 remote-as 10144
+neighbor 2001:db8:44:31:91::2 remote-as 10145
+neighbor 2001:db8:44:31:92::2 remote-as 10146
+neighbor 2001:db8:44:31:93::2 remote-as 10147
+neighbor 2001:db8:44:31:94::2 remote-as 10148
+neighbor 2001:db8:44:31:95::2 remote-as 10149
+neighbor 2001:db8:44:31:96::2 remote-as 10150
+neighbor 2001:db8:44:31:97::2 remote-as 10151
+neighbor 2001:db8:44:31:98::2 remote-as 10152
+neighbor 2001:db8:44:31:99::2 remote-as 10153
+neighbor 2001:db8:44:31:9A::2 remote-as 10154
+neighbor 2001:db8:44:31:9B::2 remote-as 10155
+neighbor 2001:db8:44:31:9C::2 remote-as 10156
+neighbor 2001:db8:44:31:9D::2 remote-as 10157
+neighbor 2001:db8:44:31:9E::2 remote-as 10158
+neighbor 2001:db8:44:31:9F::2 remote-as 10159
+neighbor 2001:db8:44:31:A0::2 remote-as 10160
+neighbor 2001:db8:44:31:A1::2 remote-as 10161
+neighbor 2001:db8:44:31:A2::2 remote-as 10162
+neighbor 2001:db8:44:31:A3::2 remote-as 10163
+neighbor 2001:db8:44:31:A4::2 remote-as 10164
+neighbor 2001:db8:44:31:A5::2 remote-as 10165
+neighbor 2001:db8:44:31:A6::2 remote-as 10166
+neighbor 2001:db8:44:31:A7::2 remote-as 10167
+neighbor 2001:db8:44:31:A8::2 remote-as 10168
+neighbor 2001:db8:44:31:A9::2 remote-as 10169
+neighbor 2001:db8:44:31:AA::2 remote-as 10170
+neighbor 2001:db8:44:31:AB::2 remote-as 10171
+neighbor 2001:db8:44:31:AC::2 remote-as 10172
+neighbor 2001:db8:44:31:AD::2 remote-as 10173
+neighbor 2001:db8:44:31:AE::2 remote-as 10174
+neighbor 2001:db8:44:31:AF::2 remote-as 10175
+neighbor 2001:db8:44:31:B0::2 remote-as 10176
+neighbor 2001:db8:44:31:B1::2 remote-as 10177
+neighbor 2001:db8:44:31:B2::2 remote-as 10178
+neighbor 2001:db8:44:31:B3::2 remote-as 10179
+neighbor 2001:db8:44:31:B4::2 remote-as 10180
+neighbor 2001:db8:44:31:B5::2 remote-as 10181
+neighbor 2001:db8:44:31:B6::2 remote-as 10182
+neighbor 2001:db8:44:31:B7::2 remote-as 10183
+neighbor 2001:db8:44:31:B8::2 remote-as 10184
+neighbor 2001:db8:44:31:B9::2 remote-as 10185
+neighbor 2001:db8:44:31:BA::2 remote-as 10186
+neighbor 2001:db8:44:31:BB::2 remote-as 10187
+neighbor 2001:db8:44:31:BC::2 remote-as 10188
+neighbor 2001:db8:44:31:BD::2 remote-as 10189
+neighbor 2001:db8:44:31:BE::2 remote-as 10190
+neighbor 2001:db8:44:31:BF::2 remote-as 10191
+neighbor 2001:db8:44:31:C0::2 remote-as 10192
+neighbor 2001:db8:44:31:C1::2 remote-as 10193
+neighbor 2001:db8:44:31:C2::2 remote-as 10194
+neighbor 2001:db8:44:31:C3::2 remote-as 10195
+neighbor 2001:db8:44:31:C4::2 remote-as 10196
+neighbor 2001:db8:44:31:C5::2 remote-as 10197
+neighbor 2001:db8:44:31:C6::2 remote-as 10198
+neighbor 2001:db8:44:31:C7::2 remote-as 10199
+
+neighbor 2001:db8:44:31:00::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:01::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:02::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:03::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:04::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:05::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:06::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:07::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:08::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:09::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:0A::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:0B::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:0C::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:0D::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:0E::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:0F::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:10::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:11::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:12::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:13::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:14::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:15::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:16::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:17::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:18::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:19::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:1A::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:1B::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:1C::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:1D::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:1E::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:1F::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:20::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:21::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:22::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:23::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:24::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:25::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:26::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:27::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:28::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:29::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:2A::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:2B::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:2C::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:2D::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:2E::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:2F::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:30::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:31::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:32::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:33::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:34::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:35::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:36::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:37::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:38::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:39::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:3A::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:3B::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:3C::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:3D::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:3E::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:3F::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:40::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:41::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:42::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:43::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:44::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:45::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:46::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:47::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:48::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:49::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:4A::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:4B::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:4C::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:4D::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:4E::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:4F::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:50::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:51::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:52::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:53::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:54::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:55::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:56::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:57::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:58::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:59::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:5A::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:5B::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:5C::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:5D::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:5E::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:5F::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:60::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:61::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:62::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:63::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:64::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:65::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:66::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:67::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:68::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:69::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:6A::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:6B::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:6C::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:6D::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:6E::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:6F::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:70::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:71::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:72::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:73::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:74::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:75::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:76::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:77::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:78::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:79::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:7A::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:7B::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:7C::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:7D::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:7E::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:7F::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:80::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:81::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:82::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:83::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:84::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:85::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:86::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:87::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:88::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:89::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:8A::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:8B::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:8C::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:8D::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:8E::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:8F::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:90::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:91::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:92::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:93::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:94::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:95::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:96::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:97::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:98::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:99::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:9A::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:9B::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:9C::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:9D::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:9E::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:9F::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:A0::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:A1::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:A2::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:A3::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:A4::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:A5::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:A6::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:A7::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:A8::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:A9::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:AA::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:AB::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:AC::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:AD::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:AE::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:AF::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:B0::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:B1::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:B2::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:B3::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:B4::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:B5::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:B6::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:B7::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:B8::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:B9::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:BA::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:BB::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:BC::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:BD::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:BE::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:BF::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:C0::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:C1::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:C2::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:C3::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:C4::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:C5::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:C6::2 address-family ipv6 unicast route-policy PASS-ALL in
+neighbor 2001:db8:44:31:C7::2 address-family ipv6 unicast route-policy PASS-ALL in
+
+neighbor 2001:db8:44:31:00::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:01::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:02::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:03::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:04::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:05::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:06::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:07::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:08::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:09::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:0A::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:0B::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:0C::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:0D::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:0E::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:0F::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:10::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:11::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:12::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:13::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:14::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:15::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:16::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:17::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:18::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:19::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:1A::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:1B::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:1C::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:1D::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:1E::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:1F::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:20::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:21::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:22::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:23::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:24::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:25::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:26::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:27::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:28::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:29::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:2A::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:2B::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:2C::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:2D::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:2E::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:2F::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:30::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:31::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:32::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:33::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:34::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:35::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:36::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:37::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:38::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:39::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:3A::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:3B::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:3C::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:3D::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:3E::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:3F::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:40::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:41::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:42::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:43::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:44::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:45::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:46::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:47::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:48::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:49::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:4A::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:4B::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:4C::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:4D::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:4E::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:4F::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:50::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:51::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:52::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:53::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:54::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:55::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:56::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:57::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:58::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:59::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:5A::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:5B::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:5C::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:5D::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:5E::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:5F::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:60::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:61::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:62::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:63::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:64::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:65::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:66::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:67::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:68::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:69::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:6A::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:6B::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:6C::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:6D::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:6E::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:6F::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:70::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:71::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:72::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:73::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:74::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:75::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:76::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:77::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:78::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:79::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:7A::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:7B::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:7C::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:7D::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:7E::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:7F::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:80::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:81::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:82::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:83::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:84::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:85::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:86::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:87::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:88::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:89::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:8A::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:8B::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:8C::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:8D::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:8E::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:8F::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:90::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:91::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:92::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:93::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:94::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:95::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:96::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:97::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:98::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:99::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:9A::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:9B::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:9C::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:9D::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:9E::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:9F::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:A0::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:A1::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:A2::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:A3::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:A4::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:A5::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:A6::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:A7::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:A8::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:A9::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:AA::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:AB::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:AC::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:AD::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:AE::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:AF::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:B0::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:B1::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:B2::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:B3::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:B4::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:B5::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:B6::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:B7::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:B8::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:B9::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:BA::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:BB::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:BC::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:BD::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:BE::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:BF::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:C0::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:C1::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:C2::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:C3::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:C4::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:C5::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:C6::2 address-family ipv6 unicast route-policy PASS-ALL out
+neighbor 2001:db8:44:31:C7::2 address-family ipv6 unicast route-policy PASS-ALL out
+
+
+### QoS ACL ####
+
+#### Each ACL 81 Entries ###
+ 
+ipv4 access-list ipv4_qos_acl_01
+ 1000 permit udp 131.0.1.0/24 range 40000 49999 111.0.1.0/24 range 40000 49999
+ipv4 access-list ipv4_qos_acl_02
+ 2000 permit udp 131.0.2.0/24 range 40000 49999 111.0.2.0/24 range 40000 49999
+ipv4 access-list ipv4_qos_acl_03
+ 3000 permit udp 131.0.3.0/24 range 40000 49999 111.0.3.0/24 range 40000 49999
+ipv4 access-list ipv4_qos_acl_04
+ 4000 permit udp 131.0.4.0/24 range 40000 49999 111.0.4.0/24 range 40000 49999
+ipv4 access-list ipv4_qos_acl_05
+ 5000 permit udp 131.0.5.0/24 range 40000 49999 111.0.5.0/24 range 40000 49999
+ipv4 access-list ipv4_qos_acl_06
+ 6000 permit udp 131.0.6.0/24 range 40000 49999 111.0.6.0/24 range 40000 49999 
+ 
+class-map ipv4_qos_cm_01
+ match access-group ipv4 ipv4_qos_acl_01
+end-class-map
+class-map ipv4_qos_cm_02
+ match access-group ipv4 ipv4_qos_acl_02
+end-class-map
+class-map ipv4_qos_cm_03
+ match access-group ipv4 ipv4_qos_acl_03
+end-class-map
+class-map ipv4_qos_cm_04
+ match access-group ipv4 ipv4_qos_acl_04
+end-class-map
+class-map ipv4_qos_cm_05
+ match access-group ipv4 ipv4_qos_acl_05
+end-class-map
+class-map ipv4_qos_cm_06
+ match access-group ipv4 ipv4_qos_acl_06
+end-class-map
+
+policy-map qos_policy
+ class ipv4_qos_cm_01
+  set qos-group 1
+ !
+ class ipv4_qos_cm_02
+  set qos-group 2
+ !
+ class ipv4_qos_cm_03
+  set qos-group 3
+ !
+ class ipv4_qos_cm_04
+  set qos-group 4
+ !
+ class ipv4_qos_cm_05
+  set qos-group 5
+ !
+ class ipv4_qos_cm_06
+  set qos-group 6
+ !
+ class class-default
+ ! 
+ end-policy-map
+!
+
+ipv6 access-list ipv6_qos_acl_01
+ 1000 permit udp 2001:db8:131:1::/64 range 40000 49999 2001:db8:111:1::/64 range 40000 49999
+ipv6 access-list ipv6_qos_acl_02
+ 2000 permit udp 2001:db8:131:2::/64 range 40000 49999 2001:db8:111:2::/64 range 40000 49999
+ipv6 access-list ipv6_qos_acl_03
+ 3000 permit udp 2001:db8:131:3::/64 range 40000 49999 2001:db8:111:3::/64 range 40000 49999
+ipv6 access-list ipv6_qos_acl_04
+ 4000 permit udp 2001:db8:131:4::/64 range 40000 49999 2001:db8:111:4::/64 range 40000 49999
+ipv6 access-list ipv6_qos_acl_05
+ 5000 permit udp 2001:db8:131:5::/64 range 40000 49999 2001:db8:111:5::/64 range 40000 49999
+ipv6 access-list ipv6_qos_acl_06
+ 6000 permit udp 2001:db8:131:6::/64 range 40000 49999 2001:db8:111:6::/64 range 40000 49999
+
+class-map ipv6_qos_cm_01
+ match access-group ipv6 ipv6_qos_acl_01
+end-class-map
+class-map ipv6_qos_cm_02
+ match access-group ipv6 ipv6_qos_acl_02
+end-class-map
+class-map ipv6_qos_cm_03
+ match access-group ipv6 ipv6_qos_acl_03
+end-class-map
+class-map ipv6_qos_cm_04
+ match access-group ipv6 ipv6_qos_acl_04
+end-class-map
+class-map ipv6_qos_cm_05
+ match access-group ipv6 ipv6_qos_acl_05
+end-class-map
+class-map ipv6_qos_cm_06
+ match access-group ipv6 ipv6_qos_acl_06
+end-class-map
+
+policy-map qos_policy
+ class ipv6_qos_cm_01
+  set qos-group 1
+ !
+ class ipv6_qos_cm_02
+  set qos-group 2
+ !
+ class ipv6_qos_cm_03
+  set qos-group 3
+ !
+ class ipv6_qos_cm_04
+  set qos-group 4
+ !
+ class ipv6_qos_cm_05
+  set qos-group 5
+ !
+ class ipv6_qos_cm_06
+  set qos-group 6
+ !
+ class class-default
+ ! 
+ end-policy-map
+!
+
+interface HundredGigE0/0/0/0         service-policy input qos_policy 
+interface HundredGigE0/0/0/4         service-policy input qos_policy 
+interface HundredGigE0/0/0/8         service-policy input qos_policy 
+interface HundredGigE0/0/0/12        service-policy input qos_policy 
+interface HundredGigE0/0/0/16        service-policy input qos_policy 
+interface HundredGigE0/0/0/20        service-policy input qos_policy 
+interface HundredGigE0/0/0/28        service-policy input qos_policy 
+interface HundredGigE0/0/0/31        service-policy input qos_policy                                  
+interface Bundle-Ether1209           service-policy input qos_policy 
+interface Bundle-Ether1210           service-policy input qos_policy 
+interface Bundle-Ether1211           service-policy input qos_policy 
+interface Bundle-Ether1212           service-policy input qos_policy 
+interface Bundle-Ether1213           service-policy input qos_policy 
+interface Bundle-Ether1214           service-policy input qos_policy 
+interface Bundle-Ether1215           service-policy input qos_policy 
+interface Bundle-Ether1216           service-policy input qos_policy  
+interface Bundle-Ether1217           service-policy input qos_policy                                 
+interface Bundle-Ether1401           service-policy input qos_policy 
+interface FourHundredGigE0/1/0/13    service-policy input qos_policy 
+interface FourHundredGigE0/1/0/15    service-policy input qos_policy                                    
+interface Bundle-Ether1501           service-policy input qos_policy 
+interface HundredGigE0/0/0/24        service-policy input qos_policy 
+interface HundredGigE0/11/0/30       service-policy input qos_policy  
