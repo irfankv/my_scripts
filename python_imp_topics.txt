@@ -6,7 +6,7 @@ decorator
 generator
 comprehension(list,dictionary,set)
 Exception handling,
-Lambda, MAP , Filter,
+Lambda, MAP , Filter,Redcue
 OOPS,
 First class functions
 RE

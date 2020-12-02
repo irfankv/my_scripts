@@ -421,7 +421,7 @@ router ospfv3 bvi
     # print(config_bvi)
 
 
-for i in range(1, 36):
+for i in range(4, 301):
     ace = "{} permit tcp host 19.1.1.2 eq 1024 host 39.1.1.2 eq {} dscp cs4".format(
         i, i
     )
@@ -433,7 +433,11 @@ for i in range(1, 36):
     #     i, i
     # )
     j = 60000 + int(i)
-    ace = "{} deny udp net-group bvi_host port-group bvi_port net-group bvi_host eq {}".format(
+    # ace = "{} deny udp net-group bvi_host port-group bvi_port net-group bvi_host eq {}".format(
+    #     i, j
+    # )
+    j = 13 + int(i)
+    ace = "{} permit udp host 19.2.3.2 eq 14 host 49.4.1.2 eq {} dscp cs3 nexthop1 ipv4 192.1.4.2 nexthop2 ipv4 192.1.3.2 nexthop3 ipv4 192.1.2.2".format(
         i, j
     )
     print(ace)
