@@ -1,0 +1,375 @@
+How to connect to EC2
+
+Public DNS: ec2-34-216-105-22.us-west-2.compute.amazonaws.com
+
+ ssh -i "<pem file path" ec2-user@Public IPv4 address or DNS
+
+Edit ~/.ssh/config as below
+
+Host my-ec2-instance
+   HostName ec2-34-216-105-22.us-west-2.compute.amazonaws.com
+   User ec2-user
+   IdentityFile /Users/ikyalnoo/Desktop/IMP_DOCS/AWS_Traning/irfan.pem
+
+Just do: ssh my-ec2-instace
+
+
+###
+Complete Boto3 Guide:
+
+https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2.html
+
+##
+By default EC2 is machine comes with Public and private IP address
+when we do SSH we use Public IP address.
+
+If EC2 is stopped and started again Public IP address can changes.
+
+when we login to EC2 with public IP address , we user @ Private IP address.
+
+ex : ec2-user@ip-172-31-56-32
+
+
+####
+EC2 User Data:
+Boot strapping means we launch commands machine starts.
+Scripts is only runs once at the instance first start.
+
+Bootstrap script are the commands which EC2 runs while instializing the instance.
+we can put any commands, like yum install http,
+# for Amazon Linux 2
+#!/bin/bash
+sudo su
+yum update                        
+yum install -y httpd.x86_64      
+systemctl start httpd.service 
+systemctl enable httpd.service
+
+we have to put this in Advanced service while creating the EC2
+
+#################################
+EC2 Pricing:
+it depends on region service is running and instance type, linux/windows/private OS, etc
+its billed every second with minimum of 60 seconds
+if the instance is stopped it won't be charged
+for x seconds below is the formula
+
+X seconds for X>60 , its costs $0.023 * X /3600
+
+Complete Pricing:
+https://aws.amazon.com/ec2/pricing/on-demand/
+
+################################
+AMI:
+An Amazon Machine Image (AMI) provides the information required to launch an instance. 
+You must specify an AMI when you launch an instance. You can launch multiple instances from a single AMI when you need multiple instances with the same configuration. You can use different AMIs to launch instances when you need instances with different configurations.
+
+An AMI includes the following:
+One or more Amazon Elastic Block Store (Amazon EBS) snapshots, or, for instance-store-backed AMIs, a template for the root volume of the instance (for example, an operating system, an application server, and applications).
+Launch permissions that control which AWS accounts can use the AMI to launch instances.
+A block device mapping that specifies the volumes to attach to the instance when it's launched.
+
+AMI can be build for linux or Windows
+
+AMI are builf for specific AWS region, there is also possible to copy to other AWS region
+
+Advantages of AMI:
+1. Pre Installed packages needed
+2. Faster boot time(No need of ec2 user data(bootscript))
+3.Active directory out of the box
+etc
+
+Amazon Linux 2 and Amazon Linux AMI
+
+Amazon Linux 2 and the Amazon Linux AMI are supported and maintained Linux images provided by AWS. The following are some of the features of Amazon Linux 2 and Amazon Linux AMI:
+
+A stable, secure, and high-performance execution environment for applications running on Amazon EC2.
+Provided at no additional charge to Amazon EC2 users.
+
+Repository access to multiple versions of MySQL, PostgreSQL, Python, Ruby, Tomcat, and many more common packages.
+Updated on a regular basis to include the latest components, and these updates are also made available in the yum repositories for installation on running instances.
+
+Includes packages that enable easy integration with AWS services, such as the AWS CLI, Amazon EC2 API and AMI tools, the Boto library for Python, and the Elastic Load Balancing tools.
+
+####################################
+Choosing right EC2 type:1
+https://ec2instances.info/
+https://aws.amazon.com/ec2/instance-types/
+
+
+5 different characteristics of EC2 instances.
+1. RAM(type,amount,generation)
+2.CPU (type,number of cores,)
+3.I/O (EBS obtimation,)
+4.Network
+5.The graphical processing unit
+
+RAM(Random access memory): its very expensive,fast,often used for caching object.
+RAM get totally gets emptied and lost when machine is rebooted.
+RAM is used any time when application will store and objects in memory
+Used "TOP" command to see which memory is used by the application
+
+ex: application which finds the word in english dictionary needs more memory because
+it needs to load the application in RAM and find the given words.
+
+another program which just finds the Fibonacci sequence for given words doesn't 
+need application to load in to the RAM, so less RAM is needed.
+
+################################
+CPU: central processing unit: piece of hardware that carries out the instruction of computer programming.
+
+it performs logical , arthmetical and input/output operations
+CPU components:
+* the CPU is made of multiple cores, each core is independent, which enable multi tasking
+* the CPU has frequency(in GHs) which represents how fast it rotates.
+
+ex: application which finds the word in english dictionary needs more memory because
+it needs to load the application in RAM and so it doesn't need much CPU
+
+another program which just finds the Fibonacci sequence for given words doesn't 
+need application to load in to the RAM, but its needs more CPU to compute.
+
+################################
+I/O
+Input and output is the concept of writing and reading from disk
+
+################################
+
+Security Group(ACL):
+
+they are the firewall for the EC2 instance
+they regulate : access to port, access to to IPs
+
+One same security group can be attached to multiple EC2 instances
+we can attach multiple security groups to one EC2 instance.
+
+they locked down to region or VPC combination
+they live outside of EC2 , if the traffic blocked EC2 wont see it.
+if application is timed out then its security group issue, if we see connection error then its application error.
+
+By default all inboud traffic is blocked.
+all outbound traffic is authorised 
+
+Private IP address:
+10.0.0.0/8
+172.16.0.0 - 172.31.0.0/16
+192.168.0.0/16
+
+Rest all IPs are public IP
+
+calculate the IPs in https://www.ipaddressguide.com/cidr
+
+Referencing other security groups:
+
+we can have security groups rules using other security groups instead of IP range.
+
+Use case: 
+EC2- EC2 direct communication
+public loa Balancer
+
+
+################################################################
+
+Elastic IP:
+when we stop and start the EC2 instance , it can change its publci IP.
+
+IF we need FIxed public IP FOR EC2 instance then we need an Elastic IP:
+
+we can reserve MAX 5 elastic IP per accounts
+we should try avoid using elastic IP.
+if we use Load balancer we dont need public IP
+
+Pricing for Elastic IP:
+we dont pay as long as IP is attached to EC2 instance and its running.
+when EC2 is stopped we have to pay for elastic IP.
+
+################################################################
+
+Placement Group:
+
+When you launch a new EC2 instance, the EC2 service attempts to place the instance in such a way that all of your instances are spread out across underlying hardware to minimize correlated failures. You can use placement groups to influence the placement of a group of interdependent instances to meet the needs of your workload. Depending on the type of workload, you can create a placement group using one of the following placement strategies:
+
+Cluster – packs instances close together inside an Availability Zone. This strategy enables workloads to achieve the low-latency network performance necessary for tightly-coupled node-to-node communication that is typical of HPC applications.
+
+all instace are kept in the same rack in same AZ.
+Prons: great network bandwidth (10GB between instances)
+Crons: if RACK fails all instances fails
+Use Case:  
+Big Data jobs which needs to be completed fast
+applications that needs low latency and high network throughput
+
+Latency is a measure of delay. In a network, latency measures the time it takes for some data to get to its destination across the network. It is usually measured as a round trip delay - the time taken for information to get to its destination and back again.
+
+Throughput is how much information actually gets delivered in a certain amount of time. So if bandwidth is the max amount of data, throughput is how much of that data makes it to its destination – taking latency, network speed, packet loss and other factors into account.
+
+
+
+Partition – spreads your instances across logical partitions such that groups of instances in one partition do not share the underlying hardware with groups of instances in different partitions. This strategy is typically used by large distributed and replicated workloads, such as Hadoop, Cassandra, and Kafka.
+
+Spread – strictly places a small group of instances across distinct underlying hardware to reduce correlated failures.
+Max 7 instances per group per AZ
+
+we can spread EC2 instances in different AZ, like 2 in one AZ and 2 in another.
+
+pros:
+can span across multiple AZs.
+reduced risk of simultaneous failures
+EC2 instances are on different physical hardware
+
+cons:
+Limit the number of instances per AZ per AZ is 7
+
+Use Case:
+application thats needs maximum high availability, ex: Cassandra cluster, kafka cluster etc.
+
+There is no charge for creating a placement group.
+
+################################
+
+LOAD Balancer:
+    load balancer are servers that forwards internet traffic to multiple servers(EC2 instances) downstream
+
+why to use load balancer:
+    spread load across multiple downstream instances.
+    expose single point of access (DNS) to your application.
+    seamless handle failures 
+    provide SSL termination(HTTPS) for our application.
+    enforce stickiness of cookies
+    separated public and private traffic
+
+why use EC2 load balancer: 
+    An EC2 load balancer is managed load balancer
+    AWS guarantees that it will be working. 
+    AWS takes care of upgrades , maintainance , high availability.
+    AWS provides only few configuration knobs
+
+3 Types of AWS load balancer:
+    classic load balancer (V1 - old generation) 2009
+    application load balancer(v2 - new generation) 2016
+    Network load balancer(v2 - new generation) 2017
+    Gateway load balancer(v2 - new generation)
+
+On AWS we can setup internal (private) or external (publics) ELBs.
+
+---------------------------------
+Classic load balancer:
+Health checks 
+
+Application load balancer: 
+https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html
+
+An Application Load Balancer functions at the application layer, the seventh layer of the Open Systems Interconnection (OSI) model. 
+After the load balancer receives a request, it evaluates the listener rules in priority order to determine which rule to apply, 
+and then selects a target from the target group for the rule action. 
+You can configure listener rules to route requests to different target groups based on the content of the application traffic. 
+Routing is performed independently for each target group, even when a target is registered with multiple target groups. 
+You can configure the routing algorithm used at the target group level. 
+The default routing algorithm is round robin; alternatively, 
+you can specify the least outstanding requests routing algorithm.
+
+layer 7 ,for this we need to have target groups, with instances/IP/lambda
+    balance based on header and path
+    along with what classic load balancer does
+
+Benefits of migrating from a Classic Load Balancer
+    Using an Application Load Balancer instead of a Classic Load Balancer has the following benefits:
+
+        Support for Path conditions. You can configure rules for your listener that forward requests based on the URL in the request. This enables you to structure your application as smaller services, and route requests to the correct service based on the content of the URL.
+
+        Support for Host conditions. You can configure rules for your listener that forward requests based on the host field in the HTTP header. This enables you to route requests to multiple domains using a single load balancer.
+
+        Support for routing based on fields in the request, such as HTTP header conditions and methods, query parameters, and source IP addresses.
+
+        Support for routing requests to multiple applications on a single EC2 instance. You can register each instance or IP address with the same target group using multiple ports.
+
+
+
+Network load balancer: Layer 4 (TCP/UDP/TLS)
+https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html
+
+A Network Load Balancer functions at the fourth layer of the Open Systems Interconnection (OSI) model. 
+It can handle millions of requests per second. 
+After the load balancer receives a connection request, it selects a target from the target group for the default rule. 
+It attempts to open a TCP connection to the selected target on the port specified in the listener configuration.
+
+For TCP traffic, the load balancer selects a target using a flow hash algorithm based on the protocol, 
+source IP address, source port, destination IP address, destination port, and TCP sequence number. 
+The TCP connections from a client have different source ports and sequence numbers, 
+and can be routed to different targets. Each individual TCP connection is routed to a single target for the life of the connection.
+
+For UDP traffic, the load balancer selects a target using a flow hash algorithm based on the protocol,
+source IP address, source port, destination IP address, and destination port. 
+A UDP flow has the same source and destination, so it is consistently routed to a single target throughout its lifetime. 
+Different UDP flows have different source IP addresses and ports, so they can be routed to different targets.
+
+Benefits of migrating from a Classic Load Balancer
+ Using a Network Load Balancer instead of a Classic Load Balancer has the following benefits:
+
+    Ability to handle volatile workloads and scale to millions of requests per second.
+
+    Support for static IP addresses for the load balancer. You can also assign one Elastic IP address per subnet enabled for the load balancer.
+
+    Support for registering targets by IP address, including targets outside the VPC for the load balancer.
+
+    Support for routing requests to multiple applications on a single EC2 instance. You can register each instance or IP address with the same target group using multiple ports.
+
+    Support for containerized applications. Amazon Elastic Container Service (Amazon ECS) can select an unused port when scheduling a task and register the task with a target group using this port. 
+    This enables you to make efficient use of your clusters.
+
+
+Load Balancing in AWS is a very complete topic and I hope this section gave you a great overview of how it works.
+
+I recommend you do the following reading to improve your knowledge:
+
+    Great article comparing the Application and the Network Load Balancer: https://medium.com/containers-on-aws/using-aws-application-load-balancer-and-network-load-balancer-with-ec2-container-service-d0cb0b1d5ae5
+    Comparison of Application Load Balancer and Classic Load Balancer: https://cloudacademy.com/blog/application-load-balancer-vs-classic-load-balancer/
+    AWS Blog that announces the Network Load Balancer: https://aws.amazon.com/blogs/aws/new-network-load-balancer-effortless-scaling-to-millions-of-requests-per-second/
+    AWS Blog that announces the Application Load Balancer: https://aws.amazon.com/blogs/aws/new-aws-application-load-balancer/
+
+
+################################ #################################
+
+Auto scaling group(ASG): 
+
+step1 : create a launch configuration : define a template that ASG will use to launch the instances.
+here we define instance type , security group, AMI
+step2 : create auto scaling group: here we define the ASG parameters(desired number of instances,load balancer(classic/network/application))
+
+Auto scaling group alarm:
+    Its possible to scale ASG based on CloudWatch alarm
+    An alarm monitor the a metric(such as average CPU)
+    Metrics are computed for overall ASG instance
+    RAM is not exposed as a metric out of the box
+    Based on alarm :
+        we can create scale-out-policy(increase number of instances)
+        we can create scale-in-policy(decrease number of instances)
+
+ASG pricing:
+https://aws.amazon.com/cloudwatch/pricing/
+
+ASG is free  we pay only for EC2 instances.
+CloudWatch is Free tier and then cheap (50 metrics per month at no charge,).
+
+################################ #################################
+ELASTIC BLOCK STORE (EBS): stores data durably
+
+AN EC2 machine is looses its root volume (main drive) when it is manually terminated
+Unexpected termination may happen time to time
+
+so we need EBS volume to store data durably.
+
+An EBS volume is a network drive you can attach to your instance while they run.
+it allows your instance to persist data. 
+its network drive(not physical
+it can be dettached from EC2 instance and attached to another
+its locked to an availability zone(AZs): an volume in us-east-1a cannot be attached us-east-1b.
+if we need to move the volume across AZs , we need to snapshot it.
+we should define capacity in GBs and I/O ops.
+we bill for not used capacity but build capacity
+
+EBS comes in 4 types:
+    GP2(SSD) general purpose SSD 
+    IO I(SSD): highest performance SSD 
+    ST 1(HDD): low cost 
+    SC 1(HDD): less cost
+

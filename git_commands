@@ -59,3 +59,23 @@ git diff <commit id> <commit id> or gt diff HEAD .
 git remote -v
 
 git branch -a 
+
+Compare two branches using git diff
+In order to compare two branches easily, you have to use the “git diff” command and provide the branch names separated by dots.
+
+$ git diff branch1..branch2
+
+Compare commits between two branches
+In some cases, you may be interested in knowing the commit differences between two branches.
+
+In order to see the commit differences between two branches, use the “git log” command and specify the branches that you want to compare.
+
+$ git log branch1..branch2
+
+Compare specific file between two branches
+In some cases, you may want to see all changes done to a specific file on the current branch you are working on.
+
+
+In order to see the differences done to a file between two branches, use the “git diff” command, specify the two branches and the filename.
+
+$ git diff master..feature -- <file>

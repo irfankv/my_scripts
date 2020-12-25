@@ -500,20 +500,3 @@ for i in st:
     else:
         su = su + 1
 
-
-def count_vowels(words):
-    b = 0
-    for i in words:
-        a = (
-            i.count("a")
-            + i.count("e")
-            + i.count("i")
-            + i.count("o")
-            + i.count("u")
-            + i.count("y")
-        )
-        if a % 2 == 0:
-            b = b + 2
-        else:
-            b = b + 1
-    return b
