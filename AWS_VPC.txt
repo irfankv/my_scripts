@@ -1,0 +1,94 @@
+VPC : virtual private cloud
+
+Security Group:
+Virtual Firewall - First level of defense, stateful - no need to explicitly allow return traffic.
+works at EC2 nd RDS.
+can attach max 5 security groups to EC2 instance with 100 rules.
+only allows rules.
+
+###############################################################
+Network ACL(NACL):
+
+they are stateless
+works at subnet level- applied to all instances
+
+Default VPC:
+AWS creates a default VPC in AWS region,
+creates VPC with CIDR 172.31.0.0/16
+creates subnet n every AZ with CIDR /20
+creates internet gateway 
+main routing table with route to internet access
+if deleted we can create a default vpc ->VPC service ->your VPC->Action->Create
+
+################################################################
+Subnets: 
+we cant create a VPC subnet with /30, its has to be between /16 and /28
+
+The first four IP addresses and the last IP address in each subnet CIDR block are not available for you to use, and cannot be assigned to an instance. For example, in a subnet with CIDR block 10.0.0.0/24, the following five IP addresses are reserved:
+
+10.0.0.0: Network address.
+
+10.0.0.1: Reserved by AWS for the VPC router.
+
+10.0.0.2: Reserved by AWS. The IP address of the DNS server is the base of the VPC network range plus two. For VPCs with multiple CIDR blocks, the IP address of the DNS server is located in the primary CIDR. We also reserve the base of each subnet range plus two for all CIDR blocks in the VPC. For more information, see Amazon DNS server.
+
+10.0.0.3: Reserved by AWS for future use.
+
+10.0.0.255: Network broadcast address. We do not support broadcast in a VPC, therefore we reserve this address.
+
+If you create a VPC or subnet using a command line tool or the Amazon EC2 API, the CIDR block is automatically modified to its canonical form. For example, if you specify 100.68.0.18/18 for the CIDR block, we create a CIDR block of 100.68.0.0/18.
+
+################################################################
+
+2 type of NAT: NAT Gateway and NAT EC2 instance
+
+NAT Instance: we have to launch the EC2 with NAT AMI not with Amazon Linux AMI.
+1. launch the EC2 with NAT AMI
+2. disable source and destination checks on the EC2 instance: means all EC2 are designed to accept the traffic with source as themselves,
+we have to disable this on the EC2 instance to accept the traffic with any source.
+3. we have to manage security groups.
+4. we have to put this NAT in public subnet of VPC.
+
+################################
+VPN Peering: Inter VPC Communication, this enables private communication between 2 VPCs. Can connect single VPC to multiple VPCs.
+
+Limitations:
+CIDR must be non overlapping,
+only one peering between given 2 VPCs.
+
+
+
+################################################################
+
+we have 2 ways to connect AWS VPC to on onprimese Data center.
+    1. AWS VPN Connection
+    2. Direct connect - physical lines between AWS and Data center.
+
+AWS VPN Connection: 
+when we have to connect to on premise Data center to AWS VPC , we need to use VPN connection.
+
+for this we need AWS Virtual Private Gateway on AWS and Custom Gateway on otherside.
+
+AWS VPC ENDPOINTs: if VPN and AWS service are in same region , instead of going via internet to reach AWS services from VPC , we can use Endpoint.
+    private connection between VPC and AWS service in same region 
+    current support S3 and DynamoDB connection in same AWS region.
+    should add corresponding route in subnet route table.
+
+
+################################################################
+
+VPC Flow Logs:
+capture the traffic information going in/out of network interface inside VPC
+flowlogs can be published to S3 or CloudWatch Log
+Flow Log can be created for VPC , subnet or a network interface
+
+################################################################
+
+VPC DHCP option sets:
+
+################################################################
+
+VPC Private Link:
+Refer VPC_private_link.pdf file in myscript folder.
+
+
