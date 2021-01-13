@@ -1,0 +1,93 @@
+AWS S3
+
+Buckets:
+S3 allows user to store objects(files) in buckets(directories)
+Buckets must have a globally unique name
+Buckets are defined at the region level
+Naming convention: No upper case,No underscore,3-36 characters, not IP
+
+objects must have a key, key is a full path 
+
+Object Values are the content of the object, max size is 5TB(5000GB), if uploading more than 5GB multi threads
+
+S3 Security: 
+1. User based security: IAM policy , which APIs calls are allowed to access
+
+2. Resource based security: 
+    * Buckets policy - bucket wide rules from the S3 console - allows cross account access
+    * Object level ACL - 
+    * Bucket level ACL -
+
+S3 Bucket Policy: 
+    - its a JSON based policy, principal is anyone who want to access
+    - Action : set of API to allow or deny access
+    - Effect: allow/deny access
+    - Principal: the account or user to apply the policy to
+Use of S3 Bucket Policy: 
+    - Grant public access to the bucket
+    - Force Object to be encrypted at uploading.
+    -  Grant access to another account(cross account)
+
+Bucket setting for Block public access
+    - Block public access to the bucket and objects granted through
+        * New ACL
+        * any ACL
+
+Link to generate Bucket Policy JSON:
+https://awspolicygen.s3.amazonaws.com/policygen.html
+
+
+Example of Bucket Policy:
+
+{
+  "Id": "Policy1609740390667",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1609740226787",
+      "Action": [
+        "s3:PutObject"
+      ],
+      "Effect": "Deny",
+      "Resource": "arn:aws:s3:::docs-ikyalnoo/*",
+      "Condition": {
+        "Null": {
+          "s3:x-amz-server-side-encryption": "True"
+        }
+      },
+      "Principal": "*"
+    },
+    {
+      "Sid": "Stmt1609740367605",
+      "Action": [
+        "s3:PutObject"
+      ],
+      "Effect": "Deny",
+      "Resource": "arn:aws:s3:::docs-ikyalnoo/*",
+      "Condition": {
+        "StringNotEquals": {
+          "s3:x-amz-server-side-encryption": "AES256"
+        }
+      },
+      "Principal": "*"
+    }
+  ]
+}
+
+****************************************************************
+all the elements of bucket policy are defined in 
+https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html
+
+
+################################################################
+S3 websites :
+    S3 can host static websites and have them accessible on the wwww
+    Then Website URL will be  <bucket-name>.s3-website-<AWS-region>.amazonaws.com
+
+    we should give public access to bucket and add a bucket getObject policy to access it.
+    we need index.html and error.html
+
+
+################################################################
+
+S3 CORS(cross origin resource sharing): 

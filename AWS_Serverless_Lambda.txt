@@ -1,0 +1,469 @@
+Serverless : means event driven computing using small, independent stateless functions
+running inside a container in the cloud
+
+AWS serverless:
+    * AWS Lambda
+    * DynamoDB
+    * AWS Cognito
+    * AWS API Gateway
+    * Amazon S3
+    * AWS SNS and SQS
+    * AWS Kinesis data firehose
+    * Aurora serverless
+    * Step Functions
+    * Fargate functions
+
+AWS Lambda:
+
+we have AWS EC2 which are virtual servers in cloud, limited by RAM and CPU, continuesly running, scaling can be done by Auto scaling.
+
+we have AWS Lambda which are virtual functions - no serves to manage
+Limited by time,
+Run on demand
+scaling is automated.
+
+Lambda supported Programming languages:
+    * NodeJS(javascript)
+    * Python
+    * Java
+    * C#(.Net)
+    * Golang
+    * Ruby
+    * C#(PowerShell)
+    * Custom Runtime API(example REST)
+
+Import DOCKER is not for lambda, its for ECS/Fargate, we cant run DOCKER on Lambda.
+
+###############################################################
+
+AWS services integrated with Lambda:
+    * API Gateway
+    * Kinesis
+    * DynamoDB
+    * s3
+    * CloudFont
+    * CloudWatch Events
+    * SNS
+    * SQS
+    * Cognito
+
+########################################################
+Lambda Synchronous Invocation:
+    we are doing synchronous invocation when we use CLI/SDK/API Gateway Application load balancer.
+
+########################################################
+
+Lambda and Application load balancer:
+
+Lambda@Edge:
+
+
+########################################################
+Lambda: 
+
+Triggers which runs the lambda are API,DynamoDB,S3,SNS,SQS,Cloudwatch log, IoT devices
+
+Lambda runs in contained environment
+Billing is done in 100ms seconds of commute time.
+100 millions requests per month are Free.
+
+########################################################
+Code Entry Types:
+we can upload the code as ZIP or from S3 or directory we write the code functions.
+
+RunTime:
+Python,NodeJS,C#,JavaScript,JAVA,GO.
+
+Handlers:
+Next stop handler, mean the function name with handler located inside the file.
+
+Environment Variables:
+We can set the key value pair in environment variables to use indise the lambda,
+we can encrypt the environment variables using KSM services.
+
+Tags:
+Tags can be used to group and filter the function , this are case sensitive key value pair.
+
+Basic Settings:
+we can set Memory and timeout
+maximum amount of time that a lambda function can run is 15minutes. 
+
+VPC: 
+here we can attach our lambda function to VPC, if lambda function attached to VPC then the function runs only in that VPC.
+will have access to resources from only that VPC.
+
+Debugging and Error Handling:
+here we can define DLQ(dead latter ques) , if lambda function error out it will send the error to SNS.
+
+Concurrency:
+we can define the maximum number of concurrent execution possible for lambda. 
+max is 1000 per AWS account.
+
+
+########################################################
+IAM Policy: when we add a trigger to Lambda function it will assign appropriate IAM permissions to invok lambda function,
+this is also called as Lambda invocation policy
+
+Lambda function will also have access to services, this is called as Lambda execution role
+
+two policy we need invocation policy and execution policy
+
+invocation policy is used by the trigger service to invoke the lambda function and execution policy is invoked by lambda function access different services.
+
+Invocation policy and execution policy are independent of each other
+
+
+Example:
+{
+  "Version": "2012-10-17",
+  "Id": "default",
+  "Statement": [
+    {
+      "Sid": "53be9fcf-ca10-40c0-b96b-75f304d31776",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "apigateway.amazonaws.com"
+      },
+      "Action": "lambda:InvokeFunction",
+      "Resource": "arn:aws:lambda:us-west-2:017852462880:function:randome_message",
+      "Condition": {
+        "ArnLike": {
+          "AWS:SourceArn": "arn:aws:execute-api:us-west-2:017852462880:d4oirayfqa/*/GET/message"
+        }
+      }
+    }
+  ]
+}
+
+################################################################
+
+Lambda Handler Function:
+2 import arguments to handler function , its EVENTS and Context
+
+Events object depends on the event source,
+Context object sets the general environment for our lambda, we can use context to retieve abt the context, like name remaining time.
+****----------------------------------------------------------------
+
+Event Object: its holds the input data or input parameters that we want the lambda function to act on.
+Structure of event object depends on the event source, each of different triggers will send event data in a particular structure.
+
+Lambda function supports 2 invocation types, it depends on the event source for example S3 event is Asynchronous and API gateway or Cognito is Synchronous: 
+    1. Synchronous
+    2. Asynchronous
+
+2 Types of Lambda Event Source:
+    1. Push Based Event Source: Push the event data to lambda in order to invoke the Lambda function
+            Example: S3 , API Gateway 
+    2. Pull Based Event Source: Lambda Poll/Pulls the Event stream to look for the event data
+            Example: DynamoDB or Kinesis stream , Amazon SQS.
+
+
+Example of AWS API Gateway Events data
+{
+  "body": "eyJ0ZXN0IjoiYm9keSJ9",
+  "resource": "/{proxy+}",
+  "path": "/path/to/resource",
+  "httpMethod": "POST",
+  "isBase64Encoded": true,
+  "queryStringParameters": {
+    "foo": "bar"
+  },
+  "multiValueQueryStringParameters": {
+    "foo": [
+      "bar"
+    ]
+  },
+  "pathParameters": {
+    "proxy": "/path/to/resource"
+  },
+  "stageVariables": {
+    "baz": "qux"
+  },
+  "headers": {
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Accept-Encoding": "gzip, deflate, sdch",
+    "Accept-Language": "en-US,en;q=0.8",
+    "Cache-Control": "max-age=0",
+    "CloudFront-Forwarded-Proto": "https",
+    "CloudFront-Is-Desktop-Viewer": "true",
+    "CloudFront-Is-Mobile-Viewer": "false",
+    "CloudFront-Is-SmartTV-Viewer": "false",
+    "CloudFront-Is-Tablet-Viewer": "false",
+    "CloudFront-Viewer-Country": "US",
+    "Host": "1234567890.execute-api.us-west-2.amazonaws.com",
+    "Upgrade-Insecure-Requests": "1",
+    "User-Agent": "Custom User Agent String",
+    "Via": "1.1 08f323deadbeefa7af34d5feb414ce27.cloudfront.net (CloudFront)",
+    "X-Amz-Cf-Id": "cDehVQoZnx43VYQb9j2-nvCh-9z396Uhbp027Y2JvkCPNLmGJHqlaA==",
+    "X-Forwarded-For": "127.0.0.1, 127.0.0.2",
+    "X-Forwarded-Port": "443",
+    "X-Forwarded-Proto": "https"
+  },
+  "multiValueHeaders": {
+    "Accept": [
+      "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
+    ],
+    "Accept-Encoding": [
+      "gzip, deflate, sdch"
+    ],
+    "Accept-Language": [
+      "en-US,en;q=0.8"
+    ],
+    "Cache-Control": [
+      "max-age=0"
+    ],
+    "CloudFront-Forwarded-Proto": [
+      "https"
+    ],
+    "CloudFront-Is-Desktop-Viewer": [
+      "true"
+    ],
+    "CloudFront-Is-Mobile-Viewer": [
+      "false"
+    ],
+    "CloudFront-Is-SmartTV-Viewer": [
+      "false"
+    ],
+    "CloudFront-Is-Tablet-Viewer": [
+      "false"
+    ],
+    "CloudFront-Viewer-Country": [
+      "US"
+    ],
+    "Host": [
+      "0123456789.execute-api.us-west-2.amazonaws.com"
+    ],
+    "Upgrade-Insecure-Requests": [
+      "1"
+    ],
+    "User-Agent": [
+      "Custom User Agent String"
+    ],
+    "Via": [
+      "1.1 08f323deadbeefa7af34d5feb414ce27.cloudfront.net (CloudFront)"
+    ],
+    "X-Amz-Cf-Id": [
+      "cDehVQoZnx43VYQb9j2-nvCh-9z396Uhbp027Y2JvkCPNLmGJHqlaA=="
+    ],
+    "X-Forwarded-For": [
+      "127.0.0.1, 127.0.0.2"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ]
+  },
+  "requestContext": {
+    "accountId": "123456789012",
+    "resourceId": "123456",
+    "stage": "prod",
+    "requestId": "c6af9ac6-7b61-11e6-9a41-93e8deadbeef",
+    "requestTime": "09/Apr/2015:12:34:56 +0000",
+    "requestTimeEpoch": 1428582896000,
+    "identity": {
+      "cognitoIdentityPoolId": null,
+      "accountId": null,
+      "cognitoIdentityId": null,
+      "caller": null,
+      "accessKey": null,
+      "sourceIp": "127.0.0.1",
+      "cognitoAuthenticationType": null,
+      "cognitoAuthenticationProvider": null,
+      "userArn": null,
+      "userAgent": "Custom User Agent String",
+      "user": null
+    },
+    "path": "/prod/path/to/resource",
+    "resourcePath": "/{proxy+}",
+    "httpMethod": "POST",
+    "apiId": "1234567890",
+    "protocol": "HTTP/1.1"
+  }
+},
+
+S3 Put::
+
+{
+  "Records": [
+    {
+      "eventVersion": "2.0",
+      "eventSource": "aws:s3",
+      "awsRegion": "us-west-2",
+      "eventTime": "1970-01-01T00:00:00.000Z",
+      "eventName": "ObjectCreated:Put",
+      "userIdentity": {
+        "principalId": "EXAMPLE"
+      },
+      "requestParameters": {
+        "sourceIPAddress": "127.0.0.1"
+      },
+      "responseElements": {
+        "x-amz-request-id": "EXAMPLE123456789",
+        "x-amz-id-2": "EXAMPLE123/5678abcdefghijklambdaisawesome/mnopqrstuvwxyzABCDEFGH"
+      },
+      "s3": {
+        "s3SchemaVersion": "1.0",
+        "configurationId": "testConfigRule",
+        "bucket": {
+          "name": "example-bucket",
+          "ownerIdentity": {
+            "principalId": "EXAMPLE"
+          },
+          "arn": "arn:aws:s3:::example-bucket"
+        },
+        "object": {
+          "key": "test/key",
+          "size": 1024,
+          "eTag": "0123456789abcdef0123456789abcdef",
+          "sequencer": "0A1B2C3D4E5F678901"
+        }
+      }
+    }
+  ]
+}
+
+****----------------------------------------------------------------
+Context: 
+    Context Object provides us some useful runtime information while lambda functions is executing.
+    Example: 
+        we can use context object to know how much time is remaining before the lambda function timeout
+
+
+Context object for python
+
+https://docs.aws.amazon.com/lambda/latest/dg/python-context.html
+
+import time
+
+def lambda_handler(event, context):   
+    print("Lambda function ARN:", context.invoked_function_arn)
+    print("CloudWatch log stream name:", context.log_stream_name)
+    print("CloudWatch log group name:",  context.log_group_name)
+    print("Lambda Request ID:", context.aws_request_id)
+    print("Lambda function memory limits in MB:", context.memory_limit_in_mb)
+    # We have added a 1 second delay so you can see the time remaining in get_remaining_time_in_millis.
+    time.sleep(1) 
+    print("Lambda time remaining in MS:", context.get_remaining_time_in_millis())
+
+----------------------------------------------------------------
+
+Logging and Error Handling:
+
+
+################################################################################
+
+Calling an AWS Lambda function from another Lambda function:
+https://www.sqlshack.com/calling-an-aws-lambda-function-from-another-lambda-function/
+
+
+we have an AWS lambda function – the ParentFunction, which assumes a specific role from the IAM (Invoke Other Lambda Function) and then calls another lambda function – the ChildFunction with a payload. Once the execution of the ChildFunction is completed, it returns a response, which is then passed on to the ParentFunction. The ParentFunction receives the response and handles the job accordingly.
+
+As in this example, let us assume that the ParentFunction is going to call the ChildFunction with a payload of ProductName, Quantity, and the UnitPrice of that product. The ChildFunction, in turn, will process this payload, calculate the total sales amount, generate a transaction reference ID, and return this information to the ParentFunction
+
+Creating the first AWS Lambda Function – ChildFunction
+
+Lambda->Create New Function-> RunTime Python3.8-> New Role:
+Add below code
+----------------------------------------------------------------
+import json
+import uuid
+ 
+def lambda_handler(event, context):
+    #1 Read the input parameters
+    productName = event['ProductName']
+    quantity    = event['Quantity']
+    unitPrice   = event['UnitPrice']
+ 
+    #2 Generate the Order Transaction ID
+    transactionId   = str(uuid.uuid1())
+ 
+    #3 Implement Business Logic
+    amount      = quantity * unitPrice
+ 
+    #4 Format and return the result
+    return {
+        'TransactionID' :   transactionId,
+        'ProductName'   :   productName,
+        'Amount'        :   amount
+    }
+ 
+----------------------------------------------------------------
+# No need to include the following snippet into the lambda function
+# Only used to test the function locally
+event = {
+    "ProductName"   : "iPhone SE",
+    "Quantity"      : 2,
+    "UnitPrice"     : 499
+}
+response = lambda_handler(event,'')
+print(response)
+-------------------------------------------------------------------
+
+Setting up the Policy for ParentFunction:
+https://awspolicygen.s3.amazonaws.com/policygen.html
+
+IAM->Policy-> Create Policy -> JSON 
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "VisualEditor0",
+      "Effect": "Allow",
+      "Accept": [
+        "lambda:InvokeFunction",
+        "lambda:InvokeAsnc",
+      ],
+      "Resource": "<ChildFunction ARN>"
+    }
+  ]
+}
+
+
+Name ->  InvokeOtherLambdaPolicy
+
+----------------------------------------------------------------
+
+Create Role:
+
+IAM->Role->Create Role -> Select Lambda -> Select AWSLambdaBasicExecutionRole and InvokeOtherLambdaPolicy
+
+
+----------------------------------------------------------------
+Create ParentFunction
+
+Add Below code:
+import json
+import boto3
+ 
+# Define the client to interact with AWS Lambda
+client = boto3.client('lambda')
+ 
+def lambda_handler(event,context):
+ 
+    # Define the input parameters that will be passed
+    # on to the child function
+    inputParams = {
+        "ProductName"   : "iPhone SE",
+        "Quantity"      : 2,
+        "UnitPrice"     : 499
+    }
+ 
+    response = client.invoke(
+        FunctionName = 'arn:aws:lambda:eu-west-1:890277245818:function:ChildFunction',
+        InvocationType = 'RequestResponse',
+        Payload = json.dumps(inputParams)
+    )
+ 
+    responseFromChild = json.load(response['Payload'])
+ 
+    print('\n')
+    print(responseFromChild)
+
+Conclusion
+
+In this article, I have explained how we can call or execute an AWS Lambda function from another lambda function within the same region. Using the AWS Lambda function, you can easily write serverless applications without having to worry about the infrastructure running behind it. Often, it becomes necessary that we might need to call different AWS Lambda functions from within another lambda due to the handling of complex business logic or something like that. 
+#########################################################################
+
